@@ -32,24 +32,24 @@
 			overflow: hidden;
 		}
 		#swiper .layui-carousel-ind li {
-			width: 16px;
-			height: 2px;
-			border-width: 1px;
+			width: 28px;
+			height: 14px;
+			border-width: 0;
 			border-style: solid;
 			border-color: rgba(0,0,0,.3);
-			border-radius: 3px;
-			background-color: #f7f7f7;
-			box-shadow: 0 0 6px rgba(255,0,0,.8);
+			border-radius: 7px;
+			background-color: rgba(191, 191, 191, 1);
+			box-shadow: 0 0 0px rgba(255,0,0,.8);
 		}
 		#swiper .layui-carousel-ind li.layui-this {
 			width: 60px;
-			height: 1px;
-			border-width: 1px;
+			height: 14px;
+			border-width: 0;
 			border-style: solid;
-			border-color: rgba(127, 78, 22, 1);
-			border-radius: 0;
-			background-color: rgba(127, 78, 22, 1);
-			box-shadow: 0 0 6px rgba(255,0,0,.8);
+			border-color: rgba(0,0,0,.3);
+			border-radius: 7px;
+			background-color: rgba(77, 79, 54, 1);
+			box-shadow: 0 0 0px rgba(255,0,0,.8);
 		}
 
 		.index-title {
@@ -75,12 +75,12 @@
 			height: 44px;
 			line-height: 44px;
 			font-size: 14px;
-			color: rgba(127, 78, 22, 1);
+			color: rgba(255, 255, 255, 1);
 			border-width: 0;
 			border-style: solid;
-			border-color: rgba(127, 78, 22, 1);
+			border-color: rgba(255,0,0,.3);
 			border-radius: 0;
-			background-color: rgba(255, 255, 255, 1);
+			background-color: rgba(77, 79, 54, 1);
 			box-shadow: 0 0 6px rgba(255,0,0,0);
 			text-align: center;
 		}
@@ -95,8 +95,8 @@
 			border-style: solid;
 			border-color: rgba(255,0,0,.3);
 			border-radius: 0;
-			background-color: rgba(127, 78, 22, 1);
-			box-shadow: 0 0 6px rgba(255,0,0,0);
+			background-color: rgba(183, 186, 107, 1);
+			box-shadow: 0 0 6px rgba(183, 186, 1070);
 		}
 		.center-container .layui-nav-tree .layui-nav-item:hover {
 			font-size: 14px;
@@ -105,7 +105,7 @@
 			border-style: solid;
 			border-color: rgba(255,0,0,.3);
 			border-radius: 0;
-			background-color: rgba(186, 107, 11, 1);
+			background-color: rgba(183, 186, 107, 1);
 			box-shadow: 0 0 6px rgba(255,0,0,0);
 		}
 		.center-container .layui-nav-tree .layui-nav-item a {
@@ -137,7 +137,7 @@
 			border-style: solid;
 			border-color: #DCDFE6;
 			background-color: #fff;
-			box-shadow: 0 0 0px rgba(255,0,0,.8);
+			box-shadow: 0 0 6px rgba(183, 186, 107,.8);
 			text-align: left;
 		}
 		.right-container .select .layui-input {
@@ -150,7 +150,7 @@
 			border-style: solid;
 			border-color: #DCDFE6;
 			background-color: #fff;
-			box-shadow: 0 0 0px rgba(255,0,0,.8);
+			box-shadow: 0 0 6px rgba(183, 186, 107,.8);
 			text-align: left;
 		}
 		.right-container .date .layui-input {
@@ -163,7 +163,7 @@
 			border-style: solid;
 			border-color: #DCDFE6;
 			background-color: #fff;
-			box-shadow: 0 0 0px rgba(255,0,0,.8);
+			box-shadow: 0 0 6px rgba(183, 186, 107,.8);
 			text-align: left;
 		}
 	</style>
@@ -178,7 +178,7 @@
 					</div>
 				</div>
 			</div> -->
-			<div class="layui-carousel" id="swiper" :style='{"boxShadow":"0 0 6px rgba(127, 78, 22, 1)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"0px","borderWidth":"0","width":"100%","borderStyle":"solid"}'>
+			<div class="layui-carousel" id="swiper" :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid"}'>
 			  <div carousel-item>
 				<div v-for="(item,index) in swiperList" :key="index">
 					<img style="width: 100%;height: 100%;object-fit:cover;" :src="item.img" />
@@ -192,14 +192,14 @@
 			<div class="line-container">
 				<p class="line" style="background: #EEEEEE;"> 个人中心 </p>
 			</div> -->
-			<div class="index-title" :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"10px auto","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(127, 78, 22, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"4px","borderWidth":"0","fontSize":"20px","borderStyle":"solid","height":"auto"}'>
+			<div class="index-title" :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"10px auto","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(77, 79, 54, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"4px","borderWidth":"0","fontSize":"20px","borderStyle":"solid","height":"auto"}'>
 			  <span>USER / CENTER</span><span>个人中心</span>
 			</div>
 			<!-- 标题 -->
 
 			<div class="center-container">
 				<!-- 个人中心菜单 config.js-->
-				<div class="left-container" :style='{"padding":"0","boxShadow":"0px 0px 0px rgba(255,0,0,.8)","margin":"0","borderColor":"rgba(127, 78, 22, 1)","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0 0 2px 2px","width":"160px","borderStyle":"solid"}'>
+				<div class="left-container" :style='{"padding":"0","boxShadow":"-1px 1px 6px rgba(183, 186, 107,.8)","margin":"0","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0 0 1px 0","width":"160px","borderStyle":"solid"}'>
 					<ul class="layui-nav layui-nav-tree">
 						<li v-for="(item,index) in centerMenu" v-bind:key="index" class="layui-nav-item" :class="index==0?'layui-this':''">
 							<a :href="'javascript:jump(\''+item.url+'\')'">{{item.name}}</a>
@@ -208,60 +208,60 @@
 				</div>
 				<!-- 个人中心菜单 -->
 				<!-- 个人中心 -->
-				<div class="right-container" :style='{"padding":"20px","boxShadow":"3px 2px 0px rgba(69,69,69, 1) ","margin":"0","borderColor":"rgba(127, 78, 22, 1)","backgroundColor":"rgba(241, 240, 240, 1)","borderRadius":"0","borderWidth":"1px","borderStyle":"solid"}'>
+				<div class="right-container" :style='{"padding":"20px","boxShadow":"1px 1px 6px rgba(183, 186, 107,.8)","margin":"0","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0","borderStyle":"solid"}'>
 					<form class="layui-form" lay-filter="myForm">
 						<!-- 主键 -->
 						<input type="hidden" name="id" id="id" />
-                        <div class="layui-form-item"  :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0","borderColor":"rgba(177, 176, 175, 1)","backgroundColor":"#fff","borderRadius":"0px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
-							<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"rgba(127, 78, 22, 1)","textAlign":"right"}' class="layui-form-label">账号</label>
+                        <div class="layui-form-item"  :style='{"padding":"10px","boxShadow":"0 0 6px rgba(183, 186, 107,.8)","margin":"0 0 10px 0","borderColor":"rgba(183, 186, 107, 0.8)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
+							<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"#333","textAlign":"right"}' class="layui-form-label">账号</label>
 							<div class="layui-input-block input">
-								<input type="text" name="zhanghao" id="zhanghao" placeholder="账号" autocomplete="off" class="layui-input">
+								<input type="text" readonly="readonly" name="zhanghao" id="zhanghao" placeholder="账号" autocomplete="off" class="layui-input">
 							</div>
 						</div>
-                        <div class="layui-form-item"  :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0","borderColor":"rgba(177, 176, 175, 1)","backgroundColor":"#fff","borderRadius":"0px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
-							<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"rgba(127, 78, 22, 1)","textAlign":"right"}' class="layui-form-label">密码</label>
+                        <div class="layui-form-item"  :style='{"padding":"10px","boxShadow":"0 0 6px rgba(183, 186, 107,.8)","margin":"0 0 10px 0","borderColor":"rgba(183, 186, 107, 0.8)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
+							<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"#333","textAlign":"right"}' class="layui-form-label">密码</label>
 							<div class="layui-input-block input">
 								<input type="password" name="mima" id="mima" placeholder="密码" autocomplete="off" class="layui-input">
 							</div>
 						</div>
-                        <div class="layui-form-item"  :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0","borderColor":"rgba(177, 176, 175, 1)","backgroundColor":"#fff","borderRadius":"0px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
-							<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"rgba(127, 78, 22, 1)","textAlign":"right"}' class="layui-form-label">姓名</label>
+                        <div class="layui-form-item"  :style='{"padding":"10px","boxShadow":"0 0 6px rgba(183, 186, 107,.8)","margin":"0 0 10px 0","borderColor":"rgba(183, 186, 107, 0.8)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
+							<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"#333","textAlign":"right"}' class="layui-form-label">姓名</label>
 							<div class="layui-input-block input">
-								<input type="text" name="xingming" id="xingming" placeholder="姓名" autocomplete="off" class="layui-input">
+								<input type="text"  name="xingming" id="xingming" placeholder="姓名" autocomplete="off" class="layui-input">
 							</div>
 						</div>
-                        <div class="layui-form-item"  :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0","borderColor":"rgba(177, 176, 175, 1)","backgroundColor":"#fff","borderRadius":"0px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
-							<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"rgba(127, 78, 22, 1)","textAlign":"right"}' class="layui-form-label">性别</label>
+                        <div class="layui-form-item"  :style='{"padding":"10px","boxShadow":"0 0 6px rgba(183, 186, 107,.8)","margin":"0 0 10px 0","borderColor":"rgba(183, 186, 107, 0.8)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
+							<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"#333","textAlign":"right"}' class="layui-form-label">年龄</label>
+							<div class="layui-input-block input">
+								<input type="text"  name="nianling" id="nianling" placeholder="年龄" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+                        <div class="layui-form-item"  :style='{"padding":"10px","boxShadow":"0 0 6px rgba(183, 186, 107,.8)","margin":"0 0 10px 0","borderColor":"rgba(183, 186, 107, 0.8)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
+							<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"#333","textAlign":"right"}' class="layui-form-label">性别</label>
 							<div class="layui-input-block select">
-								<select name="xingbie" id="xingbie">
+								<select name="xingbie" id="xingbie" >
 									<option value="">请选择</option>
 									<option v-for="(item,index) in xingbie" v-bind:key="index" :value="item">{{item}}</option>
 								</select>
 							</div>
 						</div>
-                        <div class="layui-form-item"  :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0","borderColor":"rgba(177, 176, 175, 1)","backgroundColor":"#fff","borderRadius":"0px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
-							<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"rgba(127, 78, 22, 1)","textAlign":"right"}' class="layui-form-label">手机</label>
+                        <div class="layui-form-item"  :style='{"padding":"10px","boxShadow":"0 0 6px rgba(183, 186, 107,.8)","margin":"0 0 10px 0","borderColor":"rgba(183, 186, 107, 0.8)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
+							<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"#333","textAlign":"right"}' class="layui-form-label">手机</label>
 							<div class="layui-input-block input">
-								<input type="text" name="shouji" id="shouji" placeholder="手机" autocomplete="off" class="layui-input">
+								<input type="text"  name="shouji" id="shouji" placeholder="手机" autocomplete="off" class="layui-input">
 							</div>
 						</div>
-                        <div class="layui-form-item"  :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0","borderColor":"rgba(177, 176, 175, 1)","backgroundColor":"#fff","borderRadius":"0px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
-							<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"rgba(127, 78, 22, 1)","textAlign":"right"}' class="layui-form-label">邮箱</label>
-							<div class="layui-input-block input">
-								<input type="text" name="youxiang" id="youxiang" placeholder="邮箱" autocomplete="off" class="layui-input">
-							</div>
-						</div>
-                        <div class="layui-form-item"  :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0","borderColor":"rgba(177, 176, 175, 1)","backgroundColor":"#fff","borderRadius":"0px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
-							<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"rgba(127, 78, 22, 1)","textAlign":"right"}' style="opacity: 0;" class="layui-form-label">头像</label>
+                        <div class="layui-form-item"  :style='{"padding":"10px","boxShadow":"0 0 6px rgba(183, 186, 107,.8)","margin":"0 0 10px 0","borderColor":"rgba(183, 186, 107, 0.8)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
+							<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"#333","textAlign":"right"}' style="opacity: 0;" class="layui-form-label">头像</label>
 							<div class="layui-input-block">
-								<img id="zhaopianImg" style="width: 100px;height: 100px;border-radius: 50%;border: 2px solid #EEEEEE;" :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","borderColor":"#DCDFE6","backgroundColor":"#fff","borderRadius":"10px","borderWidth":"1px","width":"80px","borderStyle":"solid","height":"80px"}' src="../../img/avator.png">
+								<img id="zhaopianImg" style="width: 100px;height: 100px;border-radius: 50%;border: 2px solid #EEEEEE;" :style='{"boxShadow":"0 0 6px rgba(183, 186, 107,.8)","borderColor":"#DCDFE6","backgroundColor":"#fff","borderRadius":"10px","borderWidth":"1px","width":"80px","borderStyle":"solid","height":"80px"}' src="../../img/avator.png">
 								<input type="hidden" id="zhaopian" name="zhaopian" />
 							</div>
 						</div>
-						<div class="layui-form-item"  :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0","borderColor":"rgba(177, 176, 175, 1)","backgroundColor":"#fff","borderRadius":"0px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
-							<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"rgba(127, 78, 22, 1)","textAlign":"right"}' style="opacity: 0;" class="layui-form-label">图片</label>
+						<div class="layui-form-item"  :style='{"padding":"10px","boxShadow":"0 0 6px rgba(183, 186, 107,.8)","margin":"0 0 10px 0","borderColor":"rgba(183, 186, 107, 0.8)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
+							<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"#333","textAlign":"right"}' style="opacity: 0;" class="layui-form-label">图片</label>
 							<div class="layui-input-block">
-								<button :style='{"padding":"0 10px","boxShadow":"0 0 6px #7F4E16","margin":"0 10px 0 0","borderColor":"#ccc","backgroundColor":"rgba(127, 78, 22, 1)","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"44px"}' type="button" class="layui-btn btn-theme" id="zhaopianUpload">
+								<button :style='{"padding":"0 10px","boxShadow":"1px 1px 6px rgba(183, 186, 107,.8)","margin":"0 10px 0 0","borderColor":"#ccc","backgroundColor":"rgba(183, 186, 107, 1)","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"44px"}' type="button" class="layui-btn btn-theme" id="zhaopianUpload">
 									<i v-if="true" :style='{"color":"#fff","show":true,"fontSize":"14px"}' class="layui-icon">&#xe67c;</i>上传图片
 								</button>
 							</div>
@@ -269,13 +269,13 @@
 
 						<div class="layui-form-item">
 							<div class="layui-input-block" style="display: flex;flex-wrap:wrap;">
-								<button :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.5)","margin":"10px 20px","borderColor":"#ccc","backgroundColor":"rgba(127, 78, 22, 1)","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"10%","fontSize":"14px","borderStyle":"solid","height":"44px"}' class="layui-btn btn-submit btn-theme" lay-submit lay-filter="*">更新信息</button>
-                <button :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.5)","margin":"10px 50px 0 0 ","borderColor":"#ccc","backgroundColor":"rgba(255, 120, 0, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"8px","borderWidth":"0","width":"10%","fontSize":"14px","borderStyle":"solid","height":"44px"}' @click="logout" class="layui-btn btn-submit">退出登录</button>
+								<button :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(183, 186, 107,.8)","margin":"10px auto 0","borderColor":"#ccc","backgroundColor":"rgba(183, 186, 107, 1)","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"60%","fontSize":"14px","borderStyle":"solid","height":"44px"}' class="layui-btn btn-submit btn-theme" lay-submit lay-filter="*">更新信息</button>
+                <button :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(183, 186, 107,.8)","margin":"10px auto","borderColor":"#ccc","backgroundColor":"#fff","color":"rgba(183, 186, 107, 0.8)","borderRadius":"8px","borderWidth":"0","width":"60%","fontSize":"14px","borderStyle":"solid","height":"44px"}' @click="logout" class="layui-btn btn-submit">退出登录</button>
 							</div>
 						</div>
 						<!-- <div class="layui-form-item">
 							<div class="layui-input-block">
-								<button :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.5)","margin":"10px 50px 0 0 ","borderColor":"#ccc","backgroundColor":"rgba(255, 120, 0, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"8px","borderWidth":"0","width":"10%","fontSize":"14px","borderStyle":"solid","height":"44px"}' @click="logout" class="layui-btn btn-submit">退出登录</button>
+								<button :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(183, 186, 107,.8)","margin":"10px auto","borderColor":"#ccc","backgroundColor":"#fff","color":"rgba(183, 186, 107, 0.8)","borderRadius":"8px","borderWidth":"0","width":"60%","fontSize":"14px","borderStyle":"solid","height":"44px"}' @click="logout" class="layui-btn btn-submit">退出登录</button>
 							</div>
 						</div> -->
 					</form>
@@ -320,6 +320,7 @@
 						localStorage.removeItem('sessionTable');
 						localStorage.removeItem('adminName');
 						localStorage.removeItem('userid');
+						localStorage.removeItem('vip');
 						localStorage.removeItem('userTable');
 						localStorage.removeItem('iframeUrl');
 						window.parent.location.href = '../login/login.html';
@@ -327,7 +328,7 @@
 				}
 			})
 
-			layui.use(['layer', 'element', 'carousel', 'http', 'jquery', 'form', 'upload'], function() {
+			layui.use(['layer', 'element', 'carousel', 'http', 'jquery', 'form', 'upload', 'laydate'], function() {
 				var layer = layui.layer;
 				var element = layui.element;
 				var carousel = layui.carousel;
@@ -335,6 +336,8 @@
 				var jquery = layui.jquery;
 				var form = layui.form;
 				var upload = layui.upload;
+				var laydate = layui.laydate;
+				vue.baseurl = http.baseurl;
 
       // 获取轮播图 数据
       http.request('config/list', 'get', {
@@ -346,7 +349,7 @@
           res.data.list.forEach(element => {
             if (element.value != null) {
               swiperList.push({
-                img: element.value
+                img: http.baseurl+element.value
               });
             }
           });
@@ -355,9 +358,9 @@
                     carousel.render({
                         elem: '#test1',
                                 width: '100%',
-                        height: '500px',
+                        height: '550px',
                         arrow: 'hover',
-                        anim: 'fade',
+                        anim: 'default',
                         autoplay: 'true',
                         interval: '3000',
                         indicator: 'inside'
@@ -377,6 +380,15 @@
 						content: '../shop-recharge/recharge.html'
 					});
 				});
+				// 会员购买
+				jquery('#btn-buyvip').click(function(e) {
+					layer.open({
+						type: 2,
+						title: '会员购买',
+						area: ['900px', '600px'],
+						content: '../shop-recharge/buyvip.html'
+					});
+				});
 
 				// 获取轮播图 数据
 				http.request('config/list', 'get', {
@@ -389,7 +401,7 @@
 							if (item.name.indexOf('picture') >= 0 && item.value && item.value != "" && item.value != null) {
 								swiperItemHtml +=
 									'<div>' +
-									'<img style="width: 100%;height: 100%;object-fit:cover;" class="swiper-item" src="' + item.value + '">' +
+									'<img style="width: 100%;height: 100%;object-fit:cover;" class="swiper-item" src="' + http.baseurl+item.value + '">' +
 									'</div>';
 							}
 						}
@@ -399,9 +411,9 @@
 						  carousel.render({
 						  	elem: '#swiper',
 							width: '100%',
-						  	height: '500px',
+						  	height: '550px',
 						  	arrow: 'hover',
-						  	anim: 'fade',
+						  	anim: 'default',
 						  	autoplay: 'true',
 						  	interval: '3000',
 						  	indicator: 'inside'
@@ -447,9 +459,9 @@
 								time: 2000,
 								icon: 6
 							})
-							var url = http.baseurl + 'upload/' + res.file;
+							var url = 'upload/' + res.file;
 							jquery('#zhaopian').val(url);
-							jquery('#zhaopianImg').attr('src', url)
+							jquery('#zhaopianImg').attr('src', http.baseurl+url)
 						} else {
 							layer.msg(res.msg, {
 								time: 2000,
@@ -484,7 +496,7 @@
 					// 表单赋值
 					form.val("myForm", data.data);
 					// 图片赋值
-					jquery("#zhaopianImg").attr("src", data.data.zhaopian);
+					jquery("#zhaopianImg").attr("src", http.baseurl+data.data.zhaopian);
 				});
 
 				// 提交表单
@@ -504,15 +516,22 @@
 												});
 						return false
 					}
-					if(!isMobile(data.shouji)){
-						layer.msg('手机应输入手机格式', {
+					if(!data.xingming){
+						layer.msg('姓名不能为空', {
 														time: 2000,
 														icon: 5
 												});
 						return false
 					}
-					if(!isEmail(data.youxiang)){
-						layer.msg('邮箱应输入邮箱格式', {
+					if(!isIntNumer(data.nianling)){
+						layer.msg('年龄应输入整数', {
+														time: 2000,
+														icon: 5
+												});
+						return false
+					}
+					if(!isMobile(data.shouji)){
+						layer.msg('手机应输入手机格式', {
 														time: 2000,
 														icon: 5
 												});

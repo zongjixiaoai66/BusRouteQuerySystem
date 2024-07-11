@@ -34,20 +34,22 @@ import com.utils.R;
 import com.utils.MD5Util;
 import com.utils.MPUtil;
 import com.utils.CommonUtil;
-
+import java.io.IOException;
 
 /**
  * 用户
  * 后端接口
  * @author 
  * @email 
- * @date 2021-04-17 15:15:29
+ * @date 2022-04-04 22:19:36
  */
 @RestController
 @RequestMapping("/yonghu")
 public class YonghuController {
     @Autowired
     private YonghuService yonghuService;
+
+
     
 	@Autowired
 	private TokenService tokenService;
@@ -83,6 +85,7 @@ public class YonghuController {
         yonghuService.insert(yonghu);
         return R.ok();
     }
+
 	
 	/**
 	 * 退出
@@ -134,8 +137,10 @@ public class YonghuController {
     /**
      * 前端列表
      */
+	@IgnoreAuth
     @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params,YonghuEntity yonghu, HttpServletRequest request){
+    public R list(@RequestParam Map<String, Object> params,YonghuEntity yonghu, 
+		HttpServletRequest request){
         EntityWrapper<YonghuEntity> ew = new EntityWrapper<YonghuEntity>();
 		PageUtils page = yonghuService.queryPage(params, MPUtil.sort(MPUtil.between(MPUtil.likeOrEq(ew, yonghu), params), params));
         return R.ok().put("data", page);
@@ -174,6 +179,7 @@ public class YonghuController {
     /**
      * 前端详情
      */
+	@IgnoreAuth
     @RequestMapping("/detail/{id}")
     public R detail(@PathVariable("id") Long id){
         YonghuEntity yonghu = yonghuService.selectById(id);
@@ -278,6 +284,11 @@ public class YonghuController {
 		return R.ok().put("count", count);
 	}
 	
+
+
+
+
+
 
 
 }

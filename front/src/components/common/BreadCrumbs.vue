@@ -1,8 +1,8 @@
 <template>
-  <el-breadcrumb class="app-breadcrumb" separator="⭐⭐" style="height:50px;backgroundColor:rgba(231, 67, 62, 0.97);borderRadius:16px;padding:0px 20px 0px 20px;boxShadow:;borderWidth:2px;borderStyle:dotted solid double dashed;borderColor:rgba(237, 214, 84, 0.03);">
-    <transition-group name="breadcrumb" class="box" :style="2==1?'justifyContent:flex-start;':2==2?'justifyContent:center;':'justifyContent:flex-end;'">
+  <el-breadcrumb class="app-breadcrumb" separator="/" style="height:40px;backgroundColor:rgba(45, 132, 94, 1);borderRadius:4px;padding:0px 20px 0px 20px;boxShadow:0px 0px 0px 6px rgba(44,130,94,1);borderWidth:5px;borderStyle:dashed;borderColor:rgba(255, 255, 255, 1);">
+    <transition-group name="breadcrumb" class="box" :style="1==1?'justifyContent:flex-start;':1==2?'justifyContent:center;':'justifyContent:flex-end;'">
       <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path">
-        <span v-if="item.redirect==='noRedirect'||index==levelList.length-1" class="no-redirect">{{ item.name }}</span>
+        <span v-if="item.redirect==='noRedirect'||index==levelList.length-1" class="no-redirect" style="color:rgba(225, 225, 225, 1)">{{ item.name }}</span>
         <a v-else @click.prevent="handleLink(item)">{{ item.name }}</a>
       </el-breadcrumb-item>
     </transition-group>
@@ -62,19 +62,19 @@ export default {
     breadcrumbStyleChange(val) {
       this.$nextTick(()=>{
         document.querySelectorAll('.app-breadcrumb .el-breadcrumb__separator').forEach(el=>{
-          el.innerText = "⭐⭐"
-          el.style.color = "rgba(15, 15, 16, 1)"
+          el.innerText = "/"
+          el.style.color = "rgba(225, 225, 225, 1)"
         })
         document.querySelectorAll('.app-breadcrumb .el-breadcrumb__inner a').forEach(el=>{
-          el.style.color = "#303133"
-        })
-        document.querySelectorAll('.app-breadcrumb .el-breadcrumb__inner .no-redirect').forEach(el=>{
           el.style.color = "rgba(255, 255, 255, 1)"
         })
+        document.querySelectorAll('.app-breadcrumb .el-breadcrumb__inner .no-redirect').forEach(el=>{
+          el.style.color = "rgba(225, 225, 225, 1)"
+        })
 
-        let str = "vertical"
-        if("vertical" === str) {
-          let headHeight = "60px"
+        let str = "2"
+        if(2 == str) {
+          let headHeight = "80px"
           headHeight = parseInt(headHeight) + 10 + 'px'
           document.querySelectorAll('.app-breadcrumb').forEach(el=>{
             el.style.marginTop = headHeight

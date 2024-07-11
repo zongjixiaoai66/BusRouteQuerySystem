@@ -26,7 +26,6 @@
 		background-attachment: fixed;
 		background-size: cover;
 		background-position: center;
-		background-image: url(http://codegen.caihongy.cn/20210115/b0a7bab150b643b9b436cb50eb34b1fd.jpg);
 		z-index: -1;
 	}
 	#swiper {
@@ -34,7 +33,7 @@
 	}
 	#swiper .layui-carousel-ind li {
 		width: 16px;
-		height: 5px;
+		height: 10px;
 		border-width: 0;
 		border-style: solid;
 		border-color: rgba(0,0,0,.3);
@@ -44,12 +43,12 @@
 	}
 	#swiper .layui-carousel-ind li.layui-this {
 		width: 24px;
-		height: 0px;
+		height: 10px;
 		border-width: 0;
 		border-style: solid;
 		border-color: rgba(0,0,0,.3);
 		border-radius: 0;
-		background-color: rgba(255, 255, 255, 1);
+		background-color: red;
 		box-shadow: 0 0 6px rgba(255,0,0,.8);
 	}
 
@@ -59,7 +58,7 @@
 	.message-container {width: 100%}
 
 	.detail-tab .layui-tab-card>.layui-tab-title .layui-this {
-		background-color: rgba(127, 78, 22, 1);
+		background-color: rgba(183, 186, 107, 1);
 		color: #fff;
 		font-size: 14px;
 	}
@@ -69,23 +68,25 @@ padding-bottom: 20px;
 }
 
 .data-detail .layui-breadcrumb a.first {
-color: #999 !important;
+color: rgba(255, 255, 255, 1) !important;
 }
 </style>
 <body>
 
 	<div id="app">
 
-		<div class="data-detail">
-			<div class="data-detail-breadcrumb" :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(255,0,0,.3)","margin":"20px auto","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0","borderStyle":"solid","height":"54px"}'>
+		<div class="data-detail" style="padding:0">
+			<div class="data-detail-breadcrumb" :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(77, 79, 54,.3)","margin":"20px auto","borderColor":"rgba(255,0,0,.3)","backgroundColor":"rgba(183, 186, 107, 1)","borderRadius":"4px","borderWidth":"0","borderStyle":"solid","height":"54px"}'>
 				<span class="layui-breadcrumb">
-					<a class="first" :style='{"padding":"8px 10px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"0 5px","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","color":"#999","borderRadius":"0","borderWidth":"0","fontSize":"16px","borderStyle":"solid"}' href="../home/home.html">首页</a>
-					<a><cite :style='{"padding":"8px 15px","boxShadow":"0 0 6px #7F4E16","margin":"0 15px","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","color":"rgba(127, 78, 22, 1)","borderRadius":"4px","borderWidth":"0","fontSize":"16px","borderStyle":"solid"}'>{{title}}</cite></a>
+					<a class="first" :style='{"padding":"8px 10px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"0 5px","borderColor":"rgba(255,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(255, 255, 255, 1)","borderRadius":"0","borderWidth":"0","fontSize":"16px","borderStyle":"solid"}' href="../home/home.html">首页</a>
+					<a><cite :style='{"padding":"8px 15px","boxShadow":"0 0 0px rgba(255,0,0,.3)","margin":"0 15px","borderColor":"rgba(255,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 0)","color":"rgba(218, 218, 218, 1)","borderRadius":"4px","borderWidth":"0","fontSize":"16px","borderStyle":"solid"}'>{{title}}</cite></a>
 				</span>
 				
 				
 			</div>
-			<div class="layui-row" style="display: flex">
+		</div>	
+		<div class="data-detail" style="padding:0;width:100%;" :style='{"padding":"0","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"0","borderColor":"rgba(0,0,0,.3)","borderRadius":"0","borderWidth":"0","background":"#fff","borderStyle":"solid"}'>
+			<div class="layui-row" style="display: flex;width:980px;margin: 0 auto;">
 				<div class="layui-col-md5" style="width:400px">
 					<!-- <div class="layui-carousel" id="swiper">
 						<div carousel-item id="swiper-item">
@@ -94,10 +95,10 @@ color: #999 !important;
 							</div>
 						</div>
 					</div> -->
-					<div class="layui-carousel" id="swiper" :style='{"boxShadow":"6px 6px 6px #7F4E16","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"4px","borderWidth":"0","width":"400px","borderStyle":"solid","height":"400px"}'>
+					<div class="layui-carousel" id="swiper" :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"4px","borderWidth":"0","width":"400px","borderStyle":"solid","height":"400px"}'>
 					  <div carousel-item>
 						<div v-if="swiperList.length" v-for="(item,index) in swiperList" :key="index">
-							<img style="width: 100%;height: 100%;object-fit:cover;" :src="item" />
+							<img style="width: 100%;height: 100%;object-fit:cover;" :src="baseurl+item" />
 						</div>
 					  </div>
 					</div>
@@ -105,27 +106,27 @@ color: #999 !important;
 					
 		
 				</div>
-				<div class="layui-col-md7" style="padding-left: 20px;flex: 1;" :style='{"padding":"0","boxShadow":"6px 10px 6px rgba(255,0,0,0)","margin":"0 0 0 20px","borderColor":"rgba(127, 78, 22, 1)","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0px","borderStyle":"solid"}'>
-					<h1 style="position: relative;" :style='{"padding":"10px 15px","boxShadow":"0 0 0px #7F4E16","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(127, 78, 22, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"0","textAlign":"left","borderWidth":"0","fontSize":"16px","borderStyle":"solid"}' class="title">{{title}}</h1>
+				<div class="layui-col-md7" style="padding-left: 20px;flex: 1;" :style='{"padding":"10px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"0 0 0 20px","borderColor":"rgba(77, 79, 54, 1)","backgroundColor":"#fff","borderRadius":"0","borderWidth":"3px","borderStyle":"solid"}'>
+					<h1 style="position: relative;" :style='{"padding":"10px 15px","boxShadow":"0 0 0px rgba(255,0,0,.3)","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","color":"#333","borderRadius":"0","textAlign":"left","borderWidth":"0","fontSize":"16px","borderStyle":"solid"}' class="title">{{title}}</h1>
 					
 
 
 					
-					<div :style='{"padding":"6px 15px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"5px 5px","borderColor":"rgba(142, 72, 72, 0.3)","backgroundColor":"rgba(255, 255, 255, 1)","borderRadius":"0","borderWidth":"0 0 1px 0","borderStyle":"solid"}' class="detail-item">
-						<span :style='{"padding":"0 12px 0 0","minWidth":"94px","fontSize":"15px","color":"rgba(0, 0, 0, 1)","textAlign":"left"}'>用户名：</span>
-						<span style="word-break: break-all" :style='{"padding":"5px 15px","boxShadow":"0 0 0px #7F4E16","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","color":"#333","borderRadius":"4px","textAlign":"left","borderWidth":"0","width":"auto","lineHeight":"auto","fontSize":"14px","borderStyle":"solid"}' class="desc">
+					<div :style='{"padding":"6px 15px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"0","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0","borderStyle":"solid"}' class="detail-item">
+						<span :style='{"padding":"0 12px 0 0","minWidth":"94px","fontSize":"14px","color":"#333","textAlign":"right"}'>用户名：</span>
+						<span  style="word-break: break-all" :style='{"padding":"5px 15px","boxShadow":"0 0 0px rgba(255,0,0,.3)","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","color":"#333","borderRadius":"4px","textAlign":"left","borderWidth":"0","width":"auto","lineHeight":"30px","fontSize":"14px","borderStyle":"solid"}' class="desc">
 							{{detail.username}}
 						</span>
 					</div>
-					<div :style='{"padding":"6px 15px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"5px 5px","borderColor":"rgba(142, 72, 72, 0.3)","backgroundColor":"rgba(255, 255, 255, 1)","borderRadius":"0","borderWidth":"0 0 1px 0","borderStyle":"solid"}' class="detail-item">
-						<span :style='{"padding":"0 12px 0 0","minWidth":"94px","fontSize":"15px","color":"rgba(0, 0, 0, 1)","textAlign":"left"}'>密码：</span>
-						<span style="word-break: break-all" :style='{"padding":"5px 15px","boxShadow":"0 0 0px #7F4E16","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","color":"#333","borderRadius":"4px","textAlign":"left","borderWidth":"0","width":"auto","lineHeight":"auto","fontSize":"14px","borderStyle":"solid"}' class="desc">
+					<div :style='{"padding":"6px 15px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"0","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0","borderStyle":"solid"}' class="detail-item">
+						<span :style='{"padding":"0 12px 0 0","minWidth":"94px","fontSize":"14px","color":"#333","textAlign":"right"}'>密码：</span>
+						<span  style="word-break: break-all" :style='{"padding":"5px 15px","boxShadow":"0 0 0px rgba(255,0,0,.3)","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","color":"#333","borderRadius":"4px","textAlign":"left","borderWidth":"0","width":"auto","lineHeight":"30px","fontSize":"14px","borderStyle":"solid"}' class="desc">
 							{{detail.password}}
 						</span>
 					</div>
-					<div :style='{"padding":"6px 15px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"5px 5px","borderColor":"rgba(142, 72, 72, 0.3)","backgroundColor":"rgba(255, 255, 255, 1)","borderRadius":"0","borderWidth":"0 0 1px 0","borderStyle":"solid"}' class="detail-item">
-						<span :style='{"padding":"0 12px 0 0","minWidth":"94px","fontSize":"15px","color":"rgba(0, 0, 0, 1)","textAlign":"left"}'>角色：</span>
-						<span style="word-break: break-all" :style='{"padding":"5px 15px","boxShadow":"0 0 0px #7F4E16","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","color":"#333","borderRadius":"4px","textAlign":"left","borderWidth":"0","width":"auto","lineHeight":"auto","fontSize":"14px","borderStyle":"solid"}' class="desc">
+					<div :style='{"padding":"6px 15px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"0","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0","borderStyle":"solid"}' class="detail-item">
+						<span :style='{"padding":"0 12px 0 0","minWidth":"94px","fontSize":"14px","color":"#333","textAlign":"right"}'>角色：</span>
+						<span  style="word-break: break-all" :style='{"padding":"5px 15px","boxShadow":"0 0 0px rgba(255,0,0,.3)","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","color":"#333","borderRadius":"4px","textAlign":"left","borderWidth":"0","width":"auto","lineHeight":"30px","fontSize":"14px","borderStyle":"solid"}' class="desc">
 							{{detail.role}}
 						</span>
 					</div>
@@ -136,19 +137,23 @@ color: #999 !important;
 
 				</div>
 			</div>
-
+		</div>
+		<div class="data-detail">
 			
 			
 
 			<div class="layui-row detail-tab">
-				<div class="layui-tab layui-tab-card" :style='{"boxShadow":"0 0 5px #454545","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","borderRadius":"10px","borderStyle":"solid","borderWidth":"0px"}' style="overflow: hidden;">
+				<div class="layui-tab layui-tab-card" :style='{"boxShadow":"0 0 6px rgba(77, 79, 54,.3)","borderColor":"rgba(77, 79, 54, 1)","backgroundColor":"#fff","borderRadius":"10px","borderStyle":"solid","borderWidth":"1px"}' style="overflow: hidden;">
 
-					<ul class="layui-tab-title" :style='{"color":"rgba(0, 0, 0, 1)","backgroundColor":"#f2f2f2","fontSize":"14px"}'>
+					<ul class="layui-tab-title" :style='{"color":"rgba(255, 255, 255, 1)","backgroundColor":"rgba(77, 79, 54, 1)","fontSize":"14px"}'>
 						
 						
 
 						
 						
+
+
+
 
 						
 						
@@ -161,6 +166,9 @@ color: #999 !important;
 
 						
 						
+
+
+
 
 						
 						
@@ -200,7 +208,8 @@ color: #999 !important;
 				buynumber: 1,
 				// 当前详情页表
 				detailTable: 'users',
-				// 评价列表
+				baseurl: '',
+				// 评论列表
 				dataList: [],
 				// 选座座位列表
 				numberList: []
@@ -305,9 +314,26 @@ color: #999 !important;
 					$("#down")[0].click();
 				},
 				// 跨表
-				onAcrossTap(acrossTable){
+				onAcrossTap(acrossTable,crossOptAudit,statusColumnName,tips,statusColumnValue){
 					localStorage.setItem('crossTable',`users`);
 					localStorage.setItem('crossObj', JSON.stringify(this.detail));
+					localStorage.setItem('statusColumnName',statusColumnName);
+					localStorage.setItem('statusColumnValue',statusColumnValue);
+					localStorage.setItem('tips',tips);
+
+					if(statusColumnName!=''&&!statusColumnName.startsWith("[")) {
+						var obj = JSON.parse(localStorage.getItem('crossObj'));
+						for (var o in obj){
+							if(o==statusColumnName && obj[o]==statusColumnValue){
+								layer.msg(tips, {
+									time: 2000,
+									icon: 5
+								});
+								return
+							}
+						}
+					}
+
 					jump(`../${acrossTable}/add.html?corss=true`);
 				},
 
@@ -333,6 +359,7 @@ color: #999 !important;
 			// 数据ID
 			var id = http.getParam('id');
 			vue.detail.id = id;
+			vue.baseurl = http.baseurl;
 
 			// 商品信息
 			http.request(`${vue.detailTable}/detail/` + id, 'get', {}, function(res) {
@@ -351,7 +378,7 @@ color: #999 !important;
 				  carousel.render({
 					elem: '#swiper',
 					width: '400px',
-					height: '450px',
+					height: '400px',
 					arrow: 'hover',
 					anim: 'default',
 					autoplay: 'true',
@@ -372,6 +399,7 @@ color: #999 !important;
 
 
 			});
+
 
 
 			});

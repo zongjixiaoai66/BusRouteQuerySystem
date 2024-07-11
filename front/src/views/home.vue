@@ -1,13 +1,16 @@
 <template>
 <div class="content">
-
-<div class="text main-text">欢迎使用 {{this.$project.projectName}}</div>
-
-</div>
+			<div class="text main-text" :style='{"padding":"0 20px","boxShadow":"0 0 0px rgba(0,0,0,.1)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(247, 247, 247, 0)","color":"rgba(45, 132, 94, 1)","borderRadius":"6px","borderWidth":"0","width":"aoto","lineHeight":"750px","fontSize":"45px","borderStyle":"solid"}'>欢迎使用 {{this.$project.projectName}}</div>
+	</div>
 </template>
 <script>
 import router from '@/router/router-static'
 export default {
+	data() {
+		return {
+			
+		};
+	},
   mounted(){
     this.init();
   },
@@ -39,6 +42,7 @@ export default {
   height: 100%;
   min-height: 500px;
   text-align: center;
+  background: transparent;
   .main-text{
     font-size: 38px;
     font-weight: bold;

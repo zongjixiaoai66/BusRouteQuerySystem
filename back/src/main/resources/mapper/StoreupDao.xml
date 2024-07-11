@@ -10,6 +10,8 @@
         <result property="tablename" column="tablename"/>
         <result property="name" column="name"/>
         <result property="picture" column="picture"/>
+        <result property="type" column="type"/>
+        <result property="inteltype" column="inteltype"/>
     </resultMap>
 
 	<select id="selectListVO"
@@ -36,4 +38,5 @@
 		SELECT * FROM storeup  storeup <where> 1=1 ${ew.sqlSegment}</where>
 	</select>
 	
+
 </mapper>

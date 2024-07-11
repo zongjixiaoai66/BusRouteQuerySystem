@@ -34,24 +34,24 @@
 			margin: 0 auto;
 		}
 		#swiper .layui-carousel-ind li {
-			width: 16px;
-			height: 2px;
-			border-width: 1px;
+			width: 28px;
+			height: 14px;
+			border-width: 0;
 			border-style: solid;
 			border-color: rgba(0,0,0,.3);
-			border-radius: 3px;
-			background-color: #f7f7f7;
-			box-shadow: 0 0 6px rgba(255,0,0,.8);
+			border-radius: 7px;
+			background-color: rgba(191, 191, 191, 1);
+			box-shadow: 0 0 0px rgba(255,0,0,.8);
 		}
 		#swiper .layui-carousel-ind li.layui-this {
 			width: 60px;
-			height: 1px;
-			border-width: 1px;
+			height: 14px;
+			border-width: 0;
 			border-style: solid;
-			border-color: rgba(127, 78, 22, 1);
-			border-radius: 0;
-			background-color: rgba(127, 78, 22, 1);
-			box-shadow: 0 0 6px rgba(255,0,0,.8);
+			border-color: rgba(0,0,0,.3);
+			border-radius: 7px;
+			background-color: rgba(77, 79, 54, 1);
+			box-shadow: 0 0 0px rgba(255,0,0,.8);
 		}
 		
 		button, button:focus {
@@ -62,13 +62,13 @@
 			padding: 0 12px;
 			height: 40px;
 			font-size: 14px;
-			color: rgba(127, 78, 22, 1);
-			border-radius: 50px;
+			color: #333;
+			border-radius: 4px;
 			border-width: 1px;
 			border-style: solid;
 			border-color: #DCDFE6;
 			background-color: #fff;
-			box-shadow: 0 0 6px #7F4E16;
+			box-shadow: 1px 1px 6px rgba(183, 186, 107,.8);
 			text-align: left;
 		}
 		.data-add-container .add .layui-form-item {
@@ -105,7 +105,7 @@
 					</div>
 				</div>
 			</div> -->
-			<div class="layui-carousel" id="swiper" :style='{"boxShadow":"0 0 6px rgba(127, 78, 22, 1)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"0px","borderWidth":"0","width":"100%","borderStyle":"solid"}'>
+			<div class="layui-carousel" id="swiper" :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid"}'>
 			  <div carousel-item id="swiper-item">
 				<div v-for="(item,index) in swiperList" :key="index">
 					<img style="width: 100%;height: 100%;object-fit:cover;" :src="item.img" />
@@ -114,34 +114,34 @@
 			</div>
 			<!-- 轮播图 -->
 
-			<div class="data-add-container" :style='{"padding":"20px","boxShadow":"1px 10px 6px #7F4E16","margin":"30px auto","borderColor":"rgba(127, 78, 22, 1)","backgroundColor":"#fff","borderRadius":"10px","borderWidth":"1px","borderStyle":"double"}'>
+			<div class="data-add-container" :style='{"padding":"20px","boxShadow":"1px 1px 6px rgba(183, 186, 107,.8)","margin":"30px auto","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","borderRadius":"10px","borderWidth":"0","borderStyle":"solid"}'>
 
 				<form class="layui-form layui-form-pane add" lay-filter="myForm">
 					
-                    <div  :style='{"padding":"10px","boxShadow":"0 0 6px #7F4E16","margin":"0 0 10px 0","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0 0 1px 0","borderStyle":"double"}' class="layui-form-item" pane>
+                    <div  :style='{"padding":"10px","boxShadow":"1px 1px 6px rgba(183, 186, 107,.8)","margin":"0 0 10px 0","borderColor":"rgba(183, 186, 107, 1)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0 0 1px 0","borderStyle":"solid"}' class="layui-form-item" pane>
 						<label  :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"#333","textAlign":"right"}' class="layui-form-label">名称：</label>
 						<div class="layui-input-block">
-							<input :style='{"padding":"0 12px","boxShadow":"0 0 6px #7F4E16","borderColor":"#DCDFE6","backgroundColor":"#fff","color":"rgba(127, 78, 22, 1)","borderRadius":"50px","textAlign":"left","borderWidth":"1px","fontSize":"14px","borderStyle":"solid","height":"40px"}' v-model="detail.name" type="text" :readonly="ro.name" name="name" id="name" autocomplete="off" class="layui-input">
+							<input :style='{"padding":"0 12px","boxShadow":"1px 1px 6px rgba(183, 186, 107,.8)","borderColor":"#DCDFE6","backgroundColor":"#fff","color":"#333","borderRadius":"4px","textAlign":"left","borderWidth":"1px","fontSize":"14px","borderStyle":"solid","height":"40px"}' v-model="detail.name" type="text" :readonly="ro.name" name="name" id="name" autocomplete="off" class="layui-input">
 						</div>
 					</div>
-                    <div :style='{"padding":"10px","boxShadow":"0 0 6px #7F4E16","margin":"0 0 10px 0","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0 0 1px 0","borderStyle":"double"}' class="layui-form-item" pane>
+                    <div :style='{"padding":"10px","boxShadow":"1px 1px 6px rgba(183, 186, 107,.8)","margin":"0 0 10px 0","borderColor":"rgba(183, 186, 107, 1)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0 0 1px 0","borderStyle":"solid"}' class="layui-form-item" pane>
 						<label :style='{"width":"94px","padding":"0 12px 0 0","fontSize":"14px","color":"#333","textAlign":"right"}' class="layui-form-label">值：</label>
 						<div class="layui-input-block">
 							<div v-if="detail.value" style="display:inline-block;margin-right:10px;">
-								<img id="valueImg" style="width: 100px;height: 100px;border-radius: 50%;border: 2px solid #EEEEEE;" :src="detail.value">
+								<img id="valueImg" style="width: 100px;height: 100px;border-radius: 50%;border: 2px solid #EEEEEE;" :src="baseurl+detail.value.split(',')[0]">
 								<input type="hidden" :value="detail.value" id="value" name="value" />
 							</div>
-							<button v-if="!ro.value" :style='{"padding":"0 10px","boxShadow":"0 0 6px #7F4E16","margin":"0 10px 0 0","borderColor":"#ccc","backgroundColor":"rgba(127, 78, 22, 1)","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"44px"}' type="button" class="layui-btn btn-theme" id="valueUpload">
+							<button v-if="!ro.value" :style='{"padding":"0 10px","boxShadow":"1px 1px 6px rgba(183, 186, 107,.8)","margin":"0 10px 0 0","borderColor":"#ccc","backgroundColor":"rgba(183, 186, 107, 1)","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"44px"}' type="button" class="layui-btn btn-theme" id="valueUpload">
 								<i v-if="true" :style='{"color":"#fff","show":true,"fontSize":"14px"}' class="layui-icon">&#xe67c;</i>上传值
 							</button>
 						</div>
 					</div>
 
 
-					<div  :style='{"padding":"10px","boxShadow":"0 0 6px #7F4E16","margin":"0 0 10px 0","borderColor":"rgba(255,0,0,.3)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0 0 1px 0","borderStyle":"double"}' class="layui-form-item">
+					<div  :style='{"padding":"10px","boxShadow":"1px 1px 6px rgba(183, 186, 107,.8)","margin":"0 0 10px 0","borderColor":"rgba(183, 186, 107, 1)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0 0 1px 0","borderStyle":"solid"}' class="layui-form-item">
 						<div class="layui-input-block" style="text-align: right;">
-							<button :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(255,0,0,.5)","margin":"0 10px","borderColor":"#ccc","backgroundColor":"rgba(127, 78, 22, 1)","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"25%","fontSize":"14px","borderStyle":"solid","height":"44px"}' class="layui-btn btn-submit" lay-submit lay-filter="*">提交</button>
-							<button :style='{"padding":"0 10px","boxShadow":"0 0 6px #7F4E16","margin":"0 10px","borderColor":"#ccc","backgroundColor":"rgba(11, 11, 11, 1)","color":"rgba(255, 255, 255, 1)","borderRadius":"8px","borderWidth":"0","width":"25%","fontSize":"14px","borderStyle":"solid","height":"44px"}' type="reset" class="layui-btn layui-btn-primary">重置</button>
+							<button  :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.5)","margin":"0 10px","borderColor":"#ccc","backgroundColor":"rgba(183, 186, 107, 1)","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"25%","fontSize":"14px","borderStyle":"solid","height":"44px"}' class="layui-btn btn-submit" lay-submit lay-filter="*">提交</button>
+							<button :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.5)","margin":"0 10px","borderColor":"rgba(183, 186, 107, 1)","backgroundColor":"#fff","color":"rgba(183, 186, 107, 1)","borderRadius":"8px","borderWidth":"2px","width":"25%","fontSize":"14px","borderStyle":"solid","height":"44px"}' type="reset" class="layui-btn layui-btn-primary">重置</button>
 						</div>
 					</div>
 				</form>
@@ -175,6 +175,7 @@
 						img: '../../img/banner.jpg'
 					}],
 					dataList: [],
+					baseurl:'',
       					ro:{
 				        name : false,
 				        value : false,
@@ -189,6 +190,9 @@
 					layui.form.render('select', 'myForm');
 				},
                 computed: {
+
+
+
                 },
 				methods: {
 					jump(url) {
@@ -207,7 +211,8 @@
 				var form = layui.form;
 				var upload = layui.upload;
 				var laydate = layui.laydate;
-                var tinymce = layui.tinymce
+                var tinymce = layui.tinymce;
+				vue.baseurl = http.baseurl;
 
 				// 获取轮播图 数据
 				http.request('config/list', 'get', {
@@ -220,7 +225,7 @@
 							if (item.name.indexOf('picture') >= 0 && item.value && item.value != "" && item.value != null) {
 								swiperItemHtml +=
 									'<div>' +
-									'<img style="width: 100%;height: 100%;object-fit:cover;" class="swiper-item" src="' + item.value + '">' +
+									'<img style="width: 100%;height: 100%;object-fit:cover;" class="swiper-item" src="' + http.baseurl+item.value + '">' +
 									'</div>';
 							}
 						}
@@ -230,9 +235,9 @@
 						  carousel.render({
 						  	elem: '#swiper',
 							width: '100%',
-						  	height: '500px',
+						  	height: '550px',
 						  	arrow: 'hover',
-						  	anim: 'fade',
+						  	anim: 'default',
 						  	autoplay: 'true',
 						  	interval: '3000',
 						  	indicator: 'inside'
@@ -277,7 +282,7 @@
 								time: 2000,
 								icon: 6
 							})
-							var url = http.baseurl + 'upload/' + res.file;
+							var url = 'upload/' + res.file;
 							jquery('#value').val(url);
 							jquery('#valueImg').attr('src', url)
                             vue.detail.value = url;
@@ -317,37 +322,94 @@
 				}
 				
 
-				// 提交
-				form.on('submit(*)', function(data) {
-					data = data.field;
-					
+		// 提交
+		form.on('submit(*)', function(data) {
+			data = data.field;
                     // 数据校验
                     if(!data.name){
                         layer.msg('名称不能为空', {
-							time: 2000,
-							icon: 5
-						});
+				time: 2000,
+				icon: 5
+			});
                         return false
                     }
 
-					// 跨表计算
+					// 跨表计算判断
 					
                     // 比较大小
-					
-					// 提交数据
-					http.requestJson('config' + '/add', 'post', data, function(res) {
-					 	layer.msg('提交成功', {
-					 		time: 2000,
-					 		icon: 6
-					 	}, function() {
-					 		back();
-						});
-					 });
 
-					return false
+		//更新跨表属性
+	       var crossuserid;
+	       var crossrefid;
+	       var crossoptnum;
+		if(http.getParam('corss')){
+			var statusColumnName = localStorage.getItem('statusColumnName');
+			var statusColumnValue = localStorage.getItem('statusColumnValue');
+			if(statusColumnName!='') {
+				var obj = JSON.parse(localStorage.getItem('crossObj'));
+				if(!statusColumnName.startsWith("[")) {
+					for (var o in obj){
+						if(o==statusColumnName){
+							obj[o] = statusColumnValue;
+						}
+					}
+					var table = localStorage.getItem('crossTable');
+					http.requestJson(`${table}/update`,'post',obj,(res)=>{});
+				} else {
+				       crossuserid=Number(localStorage.getItem('userid'));
+				       crossrefid=obj['id'];
+				       crossoptnum=localStorage.getItem('statusColumnName');
+				       crossoptnum=crossoptnum.replace(/\[/,"").replace(/\]/,"");
+				}
+			}
+		}			
+			if(crossrefid && crossuserid) {
+				data.crossuserid=crossuserid;
+				data.crossrefid=crossrefid;
+				http.request('config/list', 'get', {
+					page: 1,
+					limit: 10,
+					crossuserid:crossuserid,
+					crossrefid:crossrefid,
+				}, function(res) {
+                    if(res.data.total>=crossoptnum) {
+						layer.msg(localStorage.getItem('tips'), {
+							time: 2000,
+							icon: 6
+						})
+                         return false;
+                    } else {
+                        // 跨表计算
+
+
+						// 提交数据
+						http.requestJson('config' + '/add', 'post', data, function(res) {
+							layer.msg('提交成功', {
+								time: 2000,
+								icon: 6
+							}, function() {
+								back();
+							});
+						 });
+					}
 				});
+			} else {
+                // 跨表计算
+				// 提交数据
+				http.requestJson('config' + '/add', 'post', data, function(res) {
+					layer.msg('提交成功', {
+						time: 2000,
+						icon: 6
+					}, function() {
+						back();
+					});
+				 });
+			}
 
+				return false
 			});
+
+		});
 		</script>
 	</body>
 </html>

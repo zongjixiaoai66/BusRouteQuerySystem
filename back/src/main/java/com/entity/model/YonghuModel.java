@@ -17,7 +17,7 @@ import java.io.Serializable;
  * 取自ModelAndView 的model名称
  * @author 
  * @email 
- * @date 2021-04-17 15:15:29
+ * @date 2022-04-04 22:19:36
  */
 public class YonghuModel  implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -36,6 +36,12 @@ public class YonghuModel  implements Serializable {
 	private String xingming;
 		
 	/**
+	 * 年龄
+	 */
+	
+	private Integer nianling;
+		
+	/**
 	 * 性别
 	 */
 	
@@ -46,12 +52,6 @@ public class YonghuModel  implements Serializable {
 	 */
 	
 	private String shouji;
-		
-	/**
-	 * 邮箱
-	 */
-	
-	private String youxiang;
 		
 	/**
 	 * 照片
@@ -93,6 +93,22 @@ public class YonghuModel  implements Serializable {
 				
 	
 	/**
+	 * 设置：年龄
+	 */
+	 
+	public void setNianling(Integer nianling) {
+		this.nianling = nianling;
+	}
+	
+	/**
+	 * 获取：年龄
+	 */
+	public Integer getNianling() {
+		return nianling;
+	}
+				
+	
+	/**
 	 * 设置：性别
 	 */
 	 
@@ -121,22 +137,6 @@ public class YonghuModel  implements Serializable {
 	 */
 	public String getShouji() {
 		return shouji;
-	}
-				
-	
-	/**
-	 * 设置：邮箱
-	 */
-	 
-	public void setYouxiang(String youxiang) {
-		this.youxiang = youxiang;
-	}
-	
-	/**
-	 * 获取：邮箱
-	 */
-	public String getYouxiang() {
-		return youxiang;
 	}
 				
 	

@@ -16,7 +16,7 @@ import com.entity.view.StoreupView;
  *
  * @author 
  * @email 
- * @date 2021-04-17 15:15:30
+ * @date 2022-04-04 22:19:37
  */
 public interface StoreupService extends IService<StoreupEntity> {
 
@@ -32,5 +32,6 @@ public interface StoreupService extends IService<StoreupEntity> {
    	
    	PageUtils queryPage(Map<String, Object> params,Wrapper<StoreupEntity> wrapper);
    	
+
 }
 

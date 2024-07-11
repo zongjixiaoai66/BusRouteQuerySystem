@@ -3,55 +3,12 @@
     <!-- 列表页 -->
     <div v-if="showFlag">
       <el-form :inline="true" :model="searchForm" class="form-content">
-        <el-row :gutter="20" class="slt" :style="{justifyContent:contents.searchBoxPosition=='1'?'flex-start':contents.searchBoxPosition=='2'?'center':'flex-end'}">
-                <el-form-item :label="contents.inputTitle == 1 ? '名称' : ''">
-                  <el-input v-if="contents.inputIcon == 1 && contents.inputIconPosition == 1" prefix-icon="el-icon-search" v-model="searchForm.name" placeholder="名称" clearable></el-input>
-                  <el-input v-if="contents.inputIcon == 1 && contents.inputIconPosition == 2" suffix-icon="el-icon-search" v-model="searchForm.name" placeholder="名称" clearable></el-input>
-                  <el-input v-if="contents.inputIcon == 0" v-model="searchForm.name" placeholder="名称" clearable></el-input>
-                </el-form-item>
-          <el-form-item>
-            <el-button v-if="contents.searchBtnIcon == 1 && contents.searchBtnIconPosition == 1" icon="el-icon-search" type="success" @click="search()">{{ contents.searchBtnFont == 1?'查询':'' }}</el-button>
-            <el-button v-if="contents.searchBtnIcon == 1 && contents.searchBtnIconPosition == 2" type="success" @click="search()">{{ contents.searchBtnFont == 1?'查询':'' }}<i class="el-icon-search el-icon--right"/></el-button>
-            <el-button v-if="contents.searchBtnIcon == 0" type="success" @click="search()">{{ contents.searchBtnFont == 1?'查询':'' }}</el-button>
-          </el-form-item>
-        </el-row>
+
         <el-row class="ad" :style="{justifyContent:contents.btnAdAllBoxPosition=='1'?'flex-start':contents.btnAdAllBoxPosition=='2'?'center':'flex-end'}">
           <el-form-item>
-            <el-button
-              v-if="isAuth('config','新增') && contents.btnAdAllIcon == 1 && contents.btnAdAllIconPosition == 1"
-              type="success"
-              icon="el-icon-plus"
-              @click="addOrUpdateHandler()"
-            >{{ contents.btnAdAllFont == 1?'新增':'' }}</el-button>
-            <el-button
-              v-if="isAuth('config','新增') && contents.btnAdAllIcon == 1 && contents.btnAdAllIconPosition == 2"
-              type="success"
-              @click="addOrUpdateHandler()"
-            >{{ contents.btnAdAllFont == 1?'新增':'' }}<i class="el-icon-plus el-icon--right" /></el-button>
-            <el-button
-              v-if="isAuth('config','新增') && contents.btnAdAllIcon == 0"
-              type="success"
-              @click="addOrUpdateHandler()"
-            >{{ contents.btnAdAllFont == 1?'新增':'' }}</el-button>
-            <el-button
-              v-if="isAuth('config','删除') && contents.btnAdAllIcon == 1 && contents.btnAdAllIconPosition == 1 && contents.tableSelection"
-              :disabled="dataListSelections.length <= 0"
-              type="danger"
-              icon="el-icon-delete"
-              @click="deleteHandler()"
-            >{{ contents.btnAdAllFont == 1?'删除':'' }}</el-button>
-            <el-button
-              v-if="isAuth('config','删除') && contents.btnAdAllIcon == 1 && contents.btnAdAllIconPosition == 2 && contents.tableSelection"
-              :disabled="dataListSelections.length <= 0"
-              type="danger"
-              @click="deleteHandler()"
-            >{{ contents.btnAdAllFont == 1?'删除':'' }}<i class="el-icon-delete el-icon--right" /></el-button>
-            <el-button
-              v-if="isAuth('config','删除') && contents.btnAdAllIcon == 0 && contents.tableSelection"
-              :disabled="dataListSelections.length <= 0"
-              type="danger"
-              @click="deleteHandler()"
-            >{{ contents.btnAdAllFont == 1?'删除':'' }}</el-button>
+
+
+
 
 
           </el-form-item>
@@ -63,8 +20,6 @@
             :border="contents.tableBorder"
             :fit="contents.tableFit"
             :stripe="contents.tableStripe"
-            :row-style="rowStyle"
-            :cell-style="cellStyle"
             :style="{width: '100%',fontSize:contents.tableContentFontSize,color:contents.tableContentFontColor}"
             v-if="isAuth('config','查看')"
             :data="dataList"
@@ -72,47 +27,44 @@
             @selection-change="selectionChangeHandler">
             <el-table-column  v-if="contents.tableSelection"
                 type="selection"
-                header-align="center"
+                :header-align="contents.tableAlign"
                 align="center"
                 width="50">
             </el-table-column>
-            <el-table-column label="索引" v-if="contents.tableIndex" type="index" width="50" />
-                <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
+            <el-table-column label="索引" :align="contents.tableAlign"  v-if="contents.tableIndex" type="index" width="50" />
+                <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign" 
                     prop="name"
-                    header-align="center"
+                   :header-align="contents.tableAlign"
 		    label="名称">
 		     <template slot-scope="scope">
                        {{scope.row.name}}
                      </template>
                 </el-table-column>
-                  <el-table-column :sortable="contents.tableSortable" :align="contents.tableAlign" prop="value"
-                    header-align="center"
+                  <el-table-column :sortable="contents.tableSortable" :align="contents.tableAlign"  prop="value"
+                   :header-align="contents.tableAlign"
                     width="200"
                     label="值">
                     <template slot-scope="scope">
                       <div v-if="scope.row.value">
-                        <img :src="scope.row.value.split(',')[0]" width="100" height="100">
+                        <img :src="$base.url+scope.row.value.split(',')[0]" width="100" height="100">
                       </div>
                       <div v-else>无图片</div>
                     </template>
                   </el-table-column>
-            <el-table-column width="300" :align="contents.tableAlign"
-                header-align="center"
+            <el-table-column width="300" :align="contents.tableAlign" 
+               :header-align="contents.tableAlign"
                 label="操作">
                 <template slot-scope="scope">
                 <el-button v-if="isAuth('config','查看') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 1" type="success" icon="el-icon-tickets" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">{{ contents.tableBtnFont == 1?'详情':'' }}</el-button>
                 <el-button v-if="isAuth('config','查看') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 2" type="success" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">{{ contents.tableBtnFont == 1?'详情':'' }}<i class="el-icon-tickets el-icon--right" /></el-button>
                 <el-button v-if="isAuth('config','查看') && contents.tableBtnIcon == 0" type="success" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">{{ contents.tableBtnFont == 1?'详情':'' }}</el-button>
-                <el-button v-if="isAuth('config','修改') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 1" type="primary" icon="el-icon-edit" size="mini" @click="addOrUpdateHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'修改':'' }}</el-button>
-                <el-button v-if="isAuth('config','修改') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 2" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'修改':'' }}<i class="el-icon-edit el-icon--right" /></el-button>
-                <el-button v-if="isAuth('config','修改') && contents.tableBtnIcon == 0" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'修改':'' }}</el-button>
+                <el-button v-if=" isAuth('config','修改') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 1" type="primary" icon="el-icon-edit" size="mini" @click="addOrUpdateHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'修改':'' }}</el-button>
+                <el-button v-if=" isAuth('config','修改') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 2" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'修改':'' }}<i class="el-icon-edit el-icon--right" /></el-button>
+                <el-button v-if=" isAuth('config','修改') && contents.tableBtnIcon == 0" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'修改':'' }}</el-button>
 
 
 
 
-                <el-button v-if="isAuth('config','删除') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 1" type="danger" icon="el-icon-delete" size="mini" @click="deleteHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'删除':'' }}</el-button>
-                <el-button v-if="isAuth('config','删除') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 2" type="danger" size="mini" @click="deleteHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'删除':'' }}<i class="el-icon-delete el-icon--right" /></el-button>
-                <el-button v-if="isAuth('config','删除') && contents.tableBtnIcon == 0" type="danger" size="mini" @click="deleteHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'删除':'' }}</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -137,9 +89,12 @@
 
 
 
+
+
   </div>
 </template>
 <script>
+import axios from 'axios'
 import AddOrUpdate from "./add-or-update";
 export default {
   data() {
@@ -159,7 +114,7 @@ export default {
       shForm: {},
       chartVisiable: false,
       addOrUpdateFlag:false,
-      contents:{"searchBtnFontColor":"#333","pagePosition":"1","inputFontSize":"14px","inputBorderRadius":"16px","tableBtnDelFontColor":"#333","tableBtnIconPosition":"2","searchBtnHeight":"40px","inputIconColor":"#C0C4CC","searchBtnBorderRadius":"4px","tableStripe":false,"btnAdAllWarnFontColor":"#333","tableBtnDelBgColor":"rgba(247, 92, 92, 1)","searchBtnIcon":"1","tableSize":"small","searchBtnBorderStyle":"solid","tableSelection":true,"searchBtnBorderWidth":"1px","tableContentFontSize":"14px","searchBtnBgColor":"#fff","inputTitleSize":"14px","btnAdAllBorderColor":"rgba(31, 147, 255, 0.73)","pageJumper":true,"btnAdAllIconPosition":"1","searchBoxPosition":"2","tableBtnDetailFontColor":"#333","tableBtnHeight":"40px","pagePager":true,"searchBtnBorderColor":"#DCDFE6","tableHeaderFontColor":"rgba(12, 12, 13, 0.67)","inputTitle":"1","tableBtnBorderRadius":"16px","btnAdAllFont":"1","btnAdAllDelFontColor":"#333","tableBtnIcon":"1","btnAdAllHeight":"40px","btnAdAllWarnBgColor":"rgba(98, 243, 245, 1)","btnAdAllBorderWidth":"1px","tableStripeFontColor":"#606266","tableBtnBorderStyle":"solid","inputHeight":"40px","btnAdAllBorderRadius":"16px","btnAdAllDelBgColor":"rgba(245, 67, 67, 0.85)","pagePrevNext":true,"btnAdAllAddBgColor":"rgba(241, 215, 70, 1)","searchBtnFont":"1","tableIndex":true,"btnAdAllIcon":"1","tableSortable":true,"pageSizes":true,"tableFit":true,"pageBtnBG":true,"searchBtnFontSize":"14px","tableBtnEditBgColor":"rgba(92, 134, 241, 0.78)","inputBorderWidth":"1px","inputFontPosition":"1","inputFontColor":"rgba(82, 135, 234, 1)","pageEachNum":10,"tableHeaderBgColor":"rgba(227, 226, 226, 0.14)","inputTitleColor":"#333","btnAdAllBoxPosition":"1","tableBtnDetailBgColor":"rgba(101, 244, 108, 1)","inputIcon":"1","searchBtnIconPosition":"1","btnAdAllFontSize":"14px","inputBorderStyle":"solid","inputBgColor":"rgba(224, 220, 220, 0.15)","pageStyle":true,"pageTotal":true,"btnAdAllAddFontColor":"#333","tableBtnFont":"1","tableContentFontColor":"rgba(78, 79, 82, 1)","inputBorderColor":"#DCDFE6","tableShowHeader":true,"tableBtnFontSize":"14px","tableBtnBorderColor":"#DCDFE6","inputIconPosition":"2","tableBorder":true,"btnAdAllBorderStyle":"solid","tableBtnBorderWidth":"1px","tableStripeBgColor":"#F5F7FA","tableBtnEditFontColor":"#333","tableAlign":"center"},
+      contents:{"searchBtnFontColor":"rgba(255, 255, 255, 1)","pagePosition":"1","inputFontSize":"14px","inputBorderRadius":"4px","tableBtnDelFontColor":"rgba(23, 109, 71, 1)","tableBtnIconPosition":"1","searchBtnHeight":"40px","tableBgColor":"rgba(255, 255, 255, 1)","inputIconColor":"rgba(45, 132, 94, 1)","searchBtnBorderRadius":"4px","tableStripe":false,"btnAdAllWarnFontColor":"rgba(34, 116, 80, 1)","tableBtnDelBgColor":"#fff","searchBtnIcon":"0","tableSize":"medium","searchBtnBorderStyle":"dashed ","text":{"padding":"0 20px","boxShadow":"0 0 0px rgba(0,0,0,.1)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(247, 247, 247, 0)","color":"rgba(45, 132, 94, 1)","borderRadius":"6px","borderWidth":"0","width":"aoto","lineHeight":"750px","fontSize":"45px","borderStyle":"solid"},"tableSelection":true,"searchBtnBorderWidth":"3px","tableContentFontSize":"14px","searchBtnBgColor":"rgba(45, 132, 94, 1)","inputTitleSize":"14px","btnAdAllBorderColor":"#DCDFE6","pageJumper":true,"btnAdAllIconPosition":"1","searchBoxPosition":"2","tableBtnDetailFontColor":"rgba(23, 109, 71, 1)","tableBtnHeight":"40px","pagePager":true,"searchBtnBorderColor":"rgba(255, 255, 255, 1)","tableHeaderFontColor":"rgba(255, 255, 255, 1)","inputTitle":"0","tableBtnBorderRadius":"0px","btnAdAllFont":"1","btnAdAllDelFontColor":"rgba(34, 116, 80, 1)","tableBtnIcon":"1","btnAdAllHeight":"40px","btnAdAllWarnBgColor":"rgba(255, 255, 255, 0)","btnAdAllBorderWidth":"0px","tableStripeFontColor":"#606266","tableBtnBorderStyle":"double","inputHeight":"40px","btnAdAllBorderRadius":"4px","btnAdAllDelBgColor":"rgba(255, 255, 255, 0)","pagePrevNext":true,"btnAdAllAddBgColor":"rgba(255, 255, 255, 0)","searchBtnFont":"1","tableIndex":true,"btnAdAllIcon":"1","tableSortable":false,"pageSizes":true,"tableFit":true,"pageBtnBG":false,"searchBtnFontSize":"14px","tableBtnEditBgColor":"#fff","box":{"padding":"10px 20px","boxShadow":"0 0 6px rgba(0,0,0,0)","flag":"1","backgroundImage":"http://codegen.caihongy.cn/20211127/eab52ed12cc046f993b4948a1731044f.png","background":"#fff"},"inputBorderWidth":"5px","inputFontPosition":"1","inputFontColor":"rgba(45, 132, 94, 1)","pageEachNum":10,"tableHeaderBgColor":"rgba(45, 132, 94, 1)","inputTitleColor":"#333","btnAdAllBoxPosition":"1","tableBtnDetailBgColor":"#fff","inputIcon":"1","searchBtnIconPosition":"2","btnAdAllFontSize":"14px","inputBorderStyle":"double","tableHoverFontColor":"#333","inputBgColor":"#fff","pageStyle":true,"pageTotal":true,"btnAdAllAddFontColor":"rgba(34, 116, 80, 1)","tableBtnFont":"1","tableContentFontColor":"rgba(58, 58, 58, 1)","inputBorderColor":"rgba(45, 132, 94, 1)","tableShowHeader":true,"tableHoverBgColor":"rgba(234, 234, 234, 0.51)","tableBtnFontSize":"14px","tableBtnBorderColor":"rgba(45, 132, 94, 1)","inputIconPosition":"2","tableBorder":true,"btnAdAllBorderStyle":"solid","tableBtnBorderWidth":"4px","tableStripeBgColor":"#F5F7FA","tableBtnEditFontColor":"rgba(23, 109, 71, 1)","tableAlign":"center"},
       layouts: '',
 
 
@@ -182,6 +137,7 @@ export default {
     AddOrUpdate,
   },
   methods: {
+
     contentStyleChange() {
       this.contentSearchStyleChange()
       this.contentBtnAdAllStyleChange()
@@ -280,24 +236,24 @@ export default {
       })
     },
     // 表格
-    rowStyle({ row, rowIndex}) {
-      if (rowIndex % 2 == 1) {
-        if(this.contents.tableStripe) {
-          return {color:this.contents.tableStripeFontColor}
-        }
-      } else {
-        return ''
-      }
-    },
-    cellStyle({ row, rowIndex}){
-      if (rowIndex % 2 == 1) {
-        if(this.contents.tableStripe) {
-          return {backgroundColor:this.contents.tableStripeBgColor}
-        }
-      } else {
-        return ''
-      }
-    },
+    // rowStyle({ row, rowIndex}) {
+    //   if (rowIndex % 2 == 1) {
+    //     if(this.contents.tableStripe) {
+    //       return {color:this.contents.tableStripeFontColor}
+    //     }
+    //   } else {
+    //     return ''
+    //   }
+    // },
+    // cellStyle({ row, rowIndex}){
+    //   if (rowIndex % 2 == 1) {
+    //     if(this.contents.tableStripe) {
+    //       return {backgroundColor:this.contents.tableStripeBgColor}
+    //     }
+    //   } else {
+    //     return ''
+    //   }
+    // },
     headerRowStyle({ row, rowIndex}){
       return {color: this.contents.tableHeaderFontColor}
     },
@@ -364,6 +320,7 @@ export default {
       this.pageIndex = 1;
       this.getDataList();
     },
+
     // 获取数据列表
     getDataList() {
       this.dataListLoading = true;
@@ -372,9 +329,7 @@ export default {
         limit: this.pageSize,
         sort: 'id',
       }
-          if(this.searchForm.name!='' && this.searchForm.name!=undefined){
-            params['name'] = '%' + this.searchForm.name + '%'
-          }
+          params['name'] = '%picture%'
       this.$http({
         url: "config/page",
         method: "get",
@@ -454,6 +409,8 @@ export default {
         });
       });
     },
+
+
   }
 
 };
@@ -486,40 +443,63 @@ export default {
   .tables {
 	& /deep/ .el-button--success {
 		height: 40px;
-		color: #333;
+		color: rgba(23, 109, 71, 1);
 		font-size: 14px;
-		border-width: 1px;
-		border-style: solid;
-		border-color: #DCDFE6;
-		border-radius: 16px;
-		background-color: rgba(101, 244, 108, 1);
+		border-width: 4px;
+		border-style: double;
+		border-color: rgba(45, 132, 94, 1);
+		border-radius: 0px;
+		background-color: #fff;
 	}
 	
 	& /deep/ .el-button--primary {
 		height: 40px;
-		color: #333;
+		color: rgba(23, 109, 71, 1);
 		font-size: 14px;
-		border-width: 1px;
-		border-style: solid;
-		border-color: #DCDFE6;
-		border-radius: 16px;
-		background-color: rgba(92, 134, 241, 0.78);
+		border-width: 4px;
+		border-style: double;
+		border-color: rgba(45, 132, 94, 1);
+		border-radius: 0px;
+		background-color: #fff;
 	}
 	
 	& /deep/ .el-button--danger {
 		height: 40px;
-		color: #333;
+		color: rgba(23, 109, 71, 1);
 		font-size: 14px;
-		border-width: 1px;
-		border-style: solid;
-		border-color: #DCDFE6;
-		border-radius: 16px;
-		background-color: rgba(247, 92, 92, 1);
+		border-width: 4px;
+		border-style: double;
+		border-color: rgba(45, 132, 94, 1);
+		border-radius: 0px;
+		background-color: #fff;
 	}
 
     & /deep/ .el-button {
       margin: 4px;
     }
   }
-
+	.form-content {
+		background: transparent;
+	}
+	.table-content {
+		background: transparent;
+	}
+	
+	.tables /deep/ .el-table__body tr {
+				background-color: rgba(255, 255, 255, 1) !important;
+				color: rgba(58, 58, 58, 1) !important;
+	 }
+	.tables /deep/ .el-table__body tr.el-table__row--striped td {
+	    background: transparent;
+	}
+	.tables /deep/ .el-table__body tr.el-table__row--striped {
+		background-color: #F5F7FA !important;
+		color: #606266 !important;
+	}
+	
+	 .tables /deep/ .el-table__body tr:hover>td {
+	   	   background-color: rgba(234, 234, 234, 0.51) !important;
+	   	   	   color: #333 !important;
+	   	 }
+	 
 </style>

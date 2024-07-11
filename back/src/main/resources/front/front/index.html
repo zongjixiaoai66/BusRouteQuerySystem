@@ -15,9 +15,9 @@
 		}
 		#iframe {
 			width: 100%;
-			margin-top: 38px;
-			padding-top: 100px;
-		}
+			margin-top: 67px;
+						padding-top: 70px;
+					}
 		#header {
 			height: auto;
 			background: #fff;
@@ -26,6 +26,7 @@
 			top: 0;
 			left: 0;
 			width: 100%;
+			z-index: 1;
 		}
 
 		#header .nav-top {
@@ -35,11 +36,12 @@
 			font-size: 16px;
 			color: #2a8a15;
 			box-sizing: border-box;
-			height: 38px;
-			background-color: rgba(127, 78, 22, 1);
-			box-shadow: 0 1px 6px rgba(0,0,0,.3);
+			height: 67px;
+			background: #4d4f36;
+			box-shadow: 0px 1px 0px 0px rgba(255,255,255,1);
 			justify-content: center;
 			position: relative;
+			z-index: 1;
 		}
 
 		#header .nav-top-img {
@@ -56,28 +58,29 @@
 
 		#header .nav-top-title {
 			line-height: 40px;
-			font-size: 25px;
+			font-size: 30px;
 			color: rgba(255, 255, 255, 1);
 			padding: 0 10px;
 			margin: 0 10px;
 			border-radius: 6px;
 			border-width: 0;
 			border-style: solid;
-			border-color: rgba(127, 78, 22, 1);
-			box-shadow: 0 0 0px rgba(0,0,0,.3);
+			border-color: rgba(0,0,0,.3);
+						background-color: rgba(0,0,0,0);
+						box-shadow: 0 0 0px rgba(0,0,0,.3);
 		}
 
 		#header .nav-top-tel {
 			line-height: 40px;
-			font-size: 25px;
-			color: rgba(222, 222, 222, 1);
+			font-size: 16px;
+			color: #333;
 			padding: 0 10px;
 			margin: 0;
 			border-radius: 6px;
 			border-width: 0;
 			border-style: solid;
-			border-color: rgba(179, 172, 172, 1);
-			box-shadow: 0 0 0px rgba(0,0,0,.3);
+			border-color: rgba(0,0,0,.3);
+			box-shadow: 0 0 6px rgba(0,0,0,.3);
 		}
 
 		#header .navs {
@@ -85,10 +88,31 @@
 			padding: 0 20px;
 			align-items: center;
 			box-sizing: border-box;
-			height: 100px;
-			background-color: rgba(69, 69, 69, 1);
-			box-shadow: 0 1px 6px rgba(0,0,0,0);
+			height: 70px;
+			background: #4d4f36;
+			box-shadow: 0px -5px 0px 4px rgba(255,255,255,1);
 			justify-content: center;
+		}
+		#header .navs1 {
+			width: 200px;
+			height: 100vh;
+			background: darkgoldenrod;
+			position: absolute;
+			top: 0;
+			display: block;
+			padding: 0;
+			overflow-y: scroll;
+			scrollbar-width: none;
+			-ms-overflow-style: none;
+		}
+		
+		#header .navs.navs1::-webkit-scrollbar {
+			display: none;
+		}
+		
+		#header .navs1 .list {
+			display: flex;
+			flex-direction: column;
 		}
 		#header .navs .title {
 			width: auto;
@@ -101,23 +125,26 @@
 			border-width: 0;
 			border-style: solid;
 			border-color: rgba(0,0,0,.3);
-			box-shadow: 0 0 6px rgba(0,0,0,0);
+						background-color: rgba(0,0,0,0);
+						box-shadow: 0 0 6px rgba(0,0,0,0);
 		}
 		#header .navs li {
 			display: inline-block;
 			width: auto;
-			line-height: 34px;
-			padding: 0 10px;
-			margin: 0 5px;
+			line-height: 70px;
+			padding: 0 20px;
+			margin: 0;
 			color: rgba(255, 255, 255, 1);
-			font-size: 20px;
-			border-radius: 6px;
+			font-size: 16px;
+			border-radius: 0;
 			border-width: 0;
 			border-style: solid;
 			border-color: rgba(0,0,0,.3);
-			background-color: $template2.front.base.nav.list.item.backgroundColor;
-			box-shadow: 0 0 6px rgba(0,0,0,.1);
-      text-align: center;
+			background-color: rgba(247, 247, 247, 0);
+			box-shadow: 0 0 0px rgba(0,0,0,.1);
+			text-align: center;
+			box-sizing: border-box;
+			cursor: pointer;
 		}
 		#header .navs li a{
 			color: inherit;
@@ -129,23 +156,23 @@
 			color: inherit;
 		}
 		#header .navs li.current {
-			color: rgba(247, 197, 30, 1);
-			font-size: 21px;
-			border-radius: 6px;
-			border-width: 0;
-			border-style: solid;
-			border-color: $template2.front.base.nav.list.activeBox.borderColor;
-			background-color: $template2.front.base.nav.list.activeBox.backgroundColor;
-			box-shadow: 0 0 0px rgba(255,0,0,.8);
-		}
-		#header .navs li:hover {
-			color: #fff;
-			font-size: 20px;
-			border-radius: 6px;
+			color: rgba(255, 255, 255, 1);
+			font-size: 16px;
+			border-radius: 0;
 			border-width: 0;
 			border-style: solid;
 			border-color: rgba(0,0,0,.3);
-			background-color: rgba(247, 197, 30, 1);
+			background-color: rgba(183, 186, 107, 1);
+			box-shadow: 0 0 0px rgba(255,0,0,.8);
+		}
+		#header .navs li:hover {
+			color: rgba(255, 255, 255, 1);
+			font-size: 16px;
+			border-radius: 0;
+			border-width: 0;
+			border-style: solid;
+			border-color: rgba(0,0,0,.3);
+			background-color: rgba(183, 186, 107, 1);
 			box-shadow: 0 0 0px rgba(0,0,0,.3);
 		}
 	</style>
@@ -157,7 +184,7 @@
 			  <div v-if="true" class="nav-top-title">{{projectName}}</div>
 			  <div class="nav-top-tel"></div>
 			</div>
-		    <div class="navs">
+					    <div class="navs">
 		    	<!-- <div class="logo" style="font-size: 20px;top: 32px;color: #fff;font-weight: bold;margin-left: -200px;width: 240px;" v-text="projectName"></div> -->
 				<div class="title" v-if="false" v-text="projectName"></div>
 				<div class="list">
@@ -166,22 +193,14 @@
 						<li v-for="(item,index) in indexNav" v-bind:key="index"><a :href="'javascript:navPage(\''+item.url+'\')'" class="menumain" style="cursor: pointer;"><i v-if="false" class="layui-icon" :class="iconArr[index]"></i>{{item.name}}</a></li>
 						<li><a href="javascript:centerPage();" class="menumain"><i v-if="false" class="layui-icon layui-icon-username"></i>个人中心</a></li>
 						<li><a :href="adminurl" target="_blank" class="menumain" style="cursor: pointer;"><i v-if="false" class="layui-icon layui-icon-link"></i>后台管理</a></li>
-						<li v-if="cartFlag"><a href="javascript:navPage('./pages/shop-cart/list.html')" class="menumain"><i v-if="false" class="layui-icon">&#xe657;</i>购物车</a></li>
-						<li v-if="chatFlag"><a href="javascript:chatTap()" class="menumain"><i v-if="false" class="layui-icon">&#xe677;</i>客服</a></li>
+						<li v-if="chatFlag"><a href="javascript:chatTap()" class="menumain"><i v-if="false" class="layui-icon">&#xe677;</i>在线提问</a></li>
 					</ul>
 				</div>
 		    </div>
-		</div>
+								</div>
 		<!-- end 顶部导航栏 -->
 
 		<iframe src="./pages/home/home.html" id="iframe" frameborder="0" scrolling="no" width="100%" onload="changeFrameHeight"></iframe>
-
-    <div id="tabbar" v-if="true" class="tabbar" :style='{"padding":"20px 0","boxShadow":"0 0 6px #F2F2F2","margin":"10px 0 0 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(242, 242, 242, 1)","borderRadius":"0","borderWidth":"0","borderStyle":"solid"}' style="position: relative;z-index: 999;">
-      <img v-if='false' :style='{"boxShadow":"0 0 6px rgba(255,0,0,.8)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"100%","borderWidth":"1px","width":"44px","borderStyle":"solid","height":"44px"}' style='display: block;' src='http://codegen.caihongy.cn/20201024/ed5e326ca66f403aa3197b5fbb4ec733.jpg' />
-      <div :style='{"padding":"0 10px","boxShadow":"0 0 6px #F2F2F2","margin":"10px auto","borderColor":"rgba(242, 242, 242, 1)","backgroundColor":"rgba(242, 242, 242, 1)","color":"#fff","textAlign":"center","borderRadius":"0","borderWidth":"0","width":"100%","lineHeight":"32px","fontSize":"14px","borderStyle":"solid"}' class="company"></div>
-      <div :style='{"padding":"0 10px","boxShadow":"0 0 6px #F2F2F2","margin":"10px auto","borderColor":"rgba(242, 242, 242, 1)","backgroundColor":"rgba(242, 242, 242, 1)","color":"rgba(64, 59, 59, 1)","textAlign":"center","borderRadius":"0","borderWidth":"0","width":"100%","lineHeight":"32px","fontSize":"14px","borderStyle":"solid"}' class="record">© 2020-2021 毕业设计所有</div>
-      <div :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"10px auto 30px auto","borderColor":"rgba(255,255,255,1)","backgroundColor":"#000","color":"#fff","textAlign":"center","borderRadius":"0","borderWidth":"1px 0","width":"40%","lineHeight":"32px","fontSize":"14px","borderStyle":"solid"}' class="desc"></div>
-    </div>
 
 		<script src="./xznstatic/js/jquery-1.11.3.min.js"></script>
 		<script src="./layui/layui.js"></script>
@@ -218,6 +237,7 @@
 						for(var i = 0;i<list.length;i++){
 							list[i].onclick = function(){
 								$(this).addClass("current").siblings().removeClass("current");
+                                localStorage.setItem("checkedLiIndex",$(this).index());
 							}
 						}
 					}
@@ -234,7 +254,7 @@
 				if (userTable) {
 					layui.layer.open({
 						type: 2,
-						title: '客服',
+						title: '在线提问',
 						area: ['600px', '600px'],
 						content: './pages/chat/chat.html'
 					});
@@ -263,6 +283,13 @@
 			var iframeUrl = localStorage.getItem('iframeUrl');
 			document.getElementById('iframe').src = iframeUrl  || './pages/home/home.html';
 
+            let list = document.getElementsByTagName("li");
+            for(var i = 0;i<list.length;i++){
+                if(i==localStorage.getItem("checkedLiIndex")) {
+                    $(list[i]).addClass("current").siblings().removeClass("current");
+                }
+            }
+
       // var i = 0;
       setInterval(function(){
         // i++;
@@ -284,7 +311,7 @@
 			//  窗口变化时候iframe自适应
 			// function changeFrameHeight() {
 				// var header = document.getElementById('header').scrollHeight;
-    //     let isshow = true
+    //     let isshow = false
     //     var tabbar = 0
     //     if(isshow) {
     //       tabbar = document.getElementById('tabbar').scrollHeight

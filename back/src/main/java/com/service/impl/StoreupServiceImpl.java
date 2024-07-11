@@ -59,4 +59,5 @@ public class StoreupServiceImpl extends ServiceImpl<StoreupDao, StoreupEntity> i
 		return baseMapper.selectView(wrapper);
 	}
 
+
 }

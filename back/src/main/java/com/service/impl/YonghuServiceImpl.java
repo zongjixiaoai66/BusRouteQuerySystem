@@ -59,4 +59,5 @@ public class YonghuServiceImpl extends ServiceImpl<YonghuDao, YonghuEntity> impl
 		return baseMapper.selectView(wrapper);
 	}
 
+
 }

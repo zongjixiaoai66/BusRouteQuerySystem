@@ -11,27 +11,15 @@ import UpdatePassword from '@/views/update-password'
 import pay from '@/views/pay'
 import register from '@/views/register'
 import center from '@/views/center'
-    import discusschongwuxinxi from '@/views/modules/discusschongwuxinxi/list'
-    import chongwuxinxi from '@/views/modules/chongwuxinxi/list'
-    import kanhufuwu from '@/views/modules/kanhufuwu/list'
-    import discusskafeicaipin from '@/views/modules/discusskafeicaipin/list'
-    import chongwutiyan from '@/views/modules/chongwutiyan/list'
-    import caipinleixing from '@/views/modules/caipinleixing/list'
-    import zhoubianshangpin from '@/views/modules/zhoubianshangpin/list'
-    import shangpinruku from '@/views/modules/shangpinruku/list'
-    import jiankangzhuangkuang from '@/views/modules/jiankangzhuangkuang/list'
-    import storeup from '@/views/modules/storeup/list'
-    import kanhushi from '@/views/modules/kanhushi/list'
-    import discusszhoubianshangpin from '@/views/modules/discusszhoubianshangpin/list'
-    import shangpingoumai from '@/views/modules/shangpingoumai/list'
-    import kafeicaipin from '@/views/modules/kafeicaipin/list'
     import yonghu from '@/views/modules/yonghu/list'
-    import chongwudingdan from '@/views/modules/chongwudingdan/list'
-    import hudongxiangmu from '@/views/modules/hudongxiangmu/list'
-    import shangpinleixing from '@/views/modules/shangpinleixing/list'
+    import chat from '@/views/modules/chat/list'
+    import messages from '@/views/modules/messages/list'
+    import discusswangzhangonggao from '@/views/modules/discusswangzhangonggao/list'
+    import gongjiaoluxian from '@/views/modules/gongjiaoluxian/list'
+    import wangzhangonggao from '@/views/modules/wangzhangonggao/list'
+    import youqinglianjie from '@/views/modules/youqinglianjie/list'
+    import discussgongjiaoluxian from '@/views/modules/discussgongjiaoluxian/list'
     import config from '@/views/modules/config/list'
-    import caipindingdan from '@/views/modules/caipindingdan/list'
-    import chongwujiyang from '@/views/modules/chongwujiyang/list'
 
 
 //2.配置路由   注意：名字
@@ -62,109 +50,49 @@ const routes = [{
       meta: {icon:'', title:'center'}
     }
       ,{
-	path: '/discusschongwuxinxi',
-        name: '宠物信息评论',
-        component: discusschongwuxinxi
-      }
-      ,{
-	path: '/chongwuxinxi',
-        name: '宠物信息',
-        component: chongwuxinxi
-      }
-      ,{
-	path: '/kanhufuwu',
-        name: '看护服务',
-        component: kanhufuwu
-      }
-      ,{
-	path: '/discusskafeicaipin',
-        name: '咖啡菜品评论',
-        component: discusskafeicaipin
-      }
-      ,{
-	path: '/chongwutiyan',
-        name: '宠物体验',
-        component: chongwutiyan
-      }
-      ,{
-	path: '/caipinleixing',
-        name: '菜品类型',
-        component: caipinleixing
-      }
-      ,{
-	path: '/zhoubianshangpin',
-        name: '周边商品',
-        component: zhoubianshangpin
-      }
-      ,{
-	path: '/shangpinruku',
-        name: '商品入库',
-        component: shangpinruku
-      }
-      ,{
-	path: '/jiankangzhuangkuang',
-        name: '健康状况',
-        component: jiankangzhuangkuang
-      }
-      ,{
-	path: '/storeup',
-        name: '我的收藏管理',
-        component: storeup
-      }
-      ,{
-	path: '/kanhushi',
-        name: '看护师',
-        component: kanhushi
-      }
-      ,{
-	path: '/discusszhoubianshangpin',
-        name: '周边商品评论',
-        component: discusszhoubianshangpin
-      }
-      ,{
-	path: '/shangpingoumai',
-        name: '商品购买',
-        component: shangpingoumai
-      }
-      ,{
-	path: '/kafeicaipin',
-        name: '咖啡菜品',
-        component: kafeicaipin
-      }
-      ,{
 	path: '/yonghu',
         name: '用户',
         component: yonghu
       }
       ,{
-	path: '/chongwudingdan',
-        name: '宠物订单',
-        component: chongwudingdan
+	path: '/chat',
+        name: '在线提问',
+        component: chat
       }
       ,{
-	path: '/hudongxiangmu',
-        name: '互动项目',
-        component: hudongxiangmu
+	path: '/messages',
+        name: '留言建议',
+        component: messages
       }
       ,{
-	path: '/shangpinleixing',
-        name: '商品类型',
-        component: shangpinleixing
+	path: '/discusswangzhangonggao',
+        name: '网站公告评论',
+        component: discusswangzhangonggao
+      }
+      ,{
+	path: '/gongjiaoluxian',
+        name: '公交路线',
+        component: gongjiaoluxian
+      }
+      ,{
+	path: '/wangzhangonggao',
+        name: '网站公告',
+        component: wangzhangonggao
+      }
+      ,{
+	path: '/youqinglianjie',
+        name: '友情链接',
+        component: youqinglianjie
+      }
+      ,{
+	path: '/discussgongjiaoluxian',
+        name: '公交路线评论',
+        component: discussgongjiaoluxian
       }
       ,{
 	path: '/config',
         name: '轮播图管理',
         component: config
-      }
-      ,{
-	path: '/caipindingdan',
-        name: '菜品订单',
-        component: caipindingdan
-      }
-      ,{
-	path: '/chongwujiyang',
-        name: '宠物寄养',
-        component: chongwujiyang
       }
     ]
   },

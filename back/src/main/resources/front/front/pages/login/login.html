@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="../../layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="../../xznstatic/css/public.css"/>
     <link rel="stylesheet" type="text/css" href="../../xznstatic/css/login.css"/>
-    <style type="text/css">
+	    <style type="text/css">
     	.login {
     		display: flex;
     		justify-content: center;
@@ -17,8 +17,8 @@
     		background-attachment: fixed;
     		background-size: cover;
     		background-position: center;
-    		    		background-image: url(http://codegen.caihongy.cn/20210130/0cd13c9f1a5a4c958d95d0cef80376d5.jpg);
-    		    	}
+									background-image: url(http://codegen.caihongy.cn/20211217/1ebf4a25c4a84b7689f866738f054aa6.png);
+						    	}
     	.login form {
     		box-sizing: border-box;
     		min-height: 400px;
@@ -48,35 +48,35 @@
     	.login .btn-submit {
     		display: block;
     		box-sizing: border-box;
+            height: 0 !important;
     	}
     	.login form p.txt {
     		width: 100%;
     		margin: 0;
     		box-sizing: border-box;
     	}
-		.l-redio .layui-form-radio {
-			margin: 0;
-		}
-		.l-redio .layui-form-radio>i {
-			font-size: 16px;
-			color: rgba(162, 155, 155, 1);
-		}
-		.l-redio .layui-form-radio>div {
-			font-size: 14px;
-			color: rgba(154, 137, 137, 1);
-		}
-		.l-redio .layui-form-radioed>i {
-			font-size: 16px;
-			color: rgba(127, 78, 22, 1);
-		}
-		.l-redio .layui-form-radioed>div {
-			font-size: 14px;
-			color: rgba(127, 78, 22, 1);
-		}
+	.l-redio .layui-form-radio {
+		margin: 0;
+	}
+	.l-redio .layui-form-radio>i {
+		font-size: 16px;
+		color: rgba(157, 165, 186, 1);
+	}
+	.l-redio .layui-form-radio>div {
+		font-size: 14px;
+		color: #606266;
+	}
+	.l-redio .layui-form-radioed>i {
+		font-size: 16px;
+		color: rgba(77, 79, 54, 1);
+	}
+	.l-redio .layui-form-radioed>div {
+		font-size: 14px;
+		color: rgba(77, 79, 54, 1);
+	}
 
-#loginForm .codes {
-				display: none;
-			}
+	#loginForm .codes {
+	}
 	
 	#loginForm .codes input {
 		width: calc(100% - 84px);
@@ -114,31 +114,24 @@
     </style>
 </head>
 <body>
-    <div id="app" class="login">
-        <form id="loginForm" class="layui-form login-form" :style='{"padding":"20px","boxShadow":"10px 10px 6px rgba(127, 78, 22, 1)","borderColor":"rgba(127, 78, 22, 1)","backgroundColor":"#fff","borderRadius":"20px","borderWidth":"1px","width":"400px","borderStyle":"solid","justifyContent":"center","height":"auto"}'>
-            <h1 class="logo" v-if="false" :style='{"padding":"5px 0","boxShadow":"0 0 6px rgba(255,0,0,.8)","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","borderRadius":"6px","borderWidth":"0","borderStyle":"solid"}'><img :style='{"boxShadow":"0 0 6px rgba(255,0,0,.8)","margin":"0 auto","borderColor":"rgba(0,0,0,.3)","borderRadius":"100%","borderWidth":"1px","width":"44px","borderStyle":"solid","height":"44px"}' src="http://codegen.caihongy.cn/20201024/ed5e326ca66f403aa3197b5fbb4ec733.jpg"></h1>
+	    <div id="app" class="login">
+        <form id="loginForm" class="layui-form login-form" :style='{"padding":"0 12px","boxShadow":"0 0 0px rgba(30, 144, 255, .8)","borderColor":"rgba(0,0,0,.3)","backgroundColor":"rgba(255, 255, 255, 0.7)","borderRadius":"45px","borderWidth":"0","width":"700px","borderStyle":"solid","justifyContent":"center","height":"400px"}'>
             
-            <div class="msg-warn hide title" v-if="true" :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(127, 78, 22, 1)","margin":"10px auto","borderColor":"rgba(0,0,0,1)","backgroundColor":"#f7f7f7","color":"rgba(127, 78, 22, 1)","isshow":true,"borderRadius":"8px","borderWidth":"0","width":"auto","lineHeight":"32px","fontSize":"12px","borderStyle":"solid"}'>公共场所不建议自动登录，以防账号丢失</div>
-            <div :style='{"padding":"0","boxShadow":"0px 0px 0px rgba(127, 78, 22, 1)","margin":"0 auto","borderColor":"rgba(0,0,0,1)","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0 0 0px 0","width":"80%","borderStyle":"solid","height":"64px"}' class="form-item">
+            <div class="msg-warn hide title" v-if="true" :style='{"padding":"15px 0","boxShadow":"0 0 6px rgba(0,0,0,0)","margin":"-125px auto 50px","borderColor":"rgba(0,0,0,1)","backgroundColor":"rgba(255, 255, 255, 0.7)","color":"rgba(77, 79, 54, 1)","isshow":true,"borderRadius":"30px 30px 0 0","borderWidth":"0","width":"80%","lineHeight":"50px","fontSize":"24px","borderStyle":"solid"}'>公共场所不建议自动登录，以防账号丢失</div>
+            <div :style='{"padding":"0","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"0 0 12px 60px","borderColor":"rgba(0,0,0,1)","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"0","borderWidth":"0","width":"35%","borderStyle":"solid","height":"64px"}' class="form-item">
                 <label v-if="false" :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(255,0,0,0)","borderColor":"rgba(0,0,0,0)","backgroundColor":"transparent","color":"#333","borderRadius":"0","textAlign":"right","borderWidth":"0","width":"84px","fontSize":"16px","borderStyle":"solid"}' class="form-label">账号</label>
-				<input :style='{"padding":"0 10px","boxShadow":"0 10px 6px rgba(127, 78, 22, 1)","borderColor":"rgba(127, 78, 22, 1)","backgroundColor":"#fff","color":"rgba(17, 17, 17, 1)","borderRadius":"8px","textAlign":"left","borderWidth":"1px","width":"100%","fontSize":"14px","borderStyle":"solid","height":"44px"}' type="text" name="username" required lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
+				<input :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(0,0,0,.5)","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 1)","color":"#333","borderRadius":"5px","textAlign":"left","borderWidth":"0","width":"100%","fontSize":"14px","borderStyle":"solid","height":"44px"}' type="text" name="username" required lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
             </div>
-            <div :style='{"padding":"0","boxShadow":"0px 0px 0px rgba(127, 78, 22, 1)","margin":"0 auto","borderColor":"rgba(0,0,0,1)","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0 0 0px 0","width":"80%","borderStyle":"solid","height":"64px"}' class="form-item">
+            <div :style='{"padding":"0","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"0 0 12px 60px","borderColor":"rgba(0,0,0,1)","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"0","borderWidth":"0","width":"35%","borderStyle":"solid","height":"64px"}' class="form-item">
                 <label v-if="false" :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(255,0,0,0)","borderColor":"rgba(0,0,0,0)","backgroundColor":"transparent","color":"#333","borderRadius":"0","textAlign":"right","borderWidth":"0","width":"84px","fontSize":"16px","borderStyle":"solid"}' class="form-label">密码</label>
-				<input :style='{"padding":"0 10px","boxShadow":"0 10px 6px rgba(127, 78, 22, 1)","borderColor":"rgba(127, 78, 22, 1)","backgroundColor":"#fff","color":"rgba(17, 17, 17, 1)","borderRadius":"8px","textAlign":"left","borderWidth":"1px","width":"100%","fontSize":"14px","borderStyle":"solid","height":"44px"}' type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+				<input :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(0,0,0,.5)","borderColor":"#ccc","backgroundColor":"rgba(255, 255, 255, 1)","color":"#333","borderRadius":"5px","textAlign":"left","borderWidth":"0","width":"100%","fontSize":"14px","borderStyle":"solid","height":"44px"}' type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
             </div>
-				<div class="form-item codes" :style='{"padding":"0","boxShadow":"0px 0px 0px rgba(127, 78, 22, 1)","margin":"0 auto","borderColor":"rgba(0,0,0,1)","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0 0 0px 0","width":"80%","borderStyle":"solid","height":"64px"}'>
-				  <input style="flex: 1;" type="text" id="code" placeholder="请输入验证码">
-				  <div class="nums" id="nums" style="display: flex;justify-content: center;align-items: center;">
-				    
-				  </div>
-				</div>
 
-            <div :style='{"padding":"0","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"0 auto","borderColor":"rgba(0,0,0,1)","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0 0 1px 0","width":"80%","borderStyle":"solid","height":"44px"}' class="form-item l-redio">
-				<input v-if="item.hasFrontLogin=='是'" v-for="(item,index) in menu" v-bind:key="index" type="radio" name="role" id="role" :value="item.tableName" :title="item.roleName">
+            <div v-if="roles.length>1" :style='{"padding":"0","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"0 auto","borderColor":"rgba(0,0,0,1)","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"0","borderWidth":"0","width":"80%","borderStyle":"solid","height":"44px"}' class="form-item l-redio">
+				<input v-for="(item,index) in roles" v-bind:key="index" type="radio" name="role" id="role" :value="item.tableName" :title="item.roleName">
             </div>
-			<button :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(127, 78, 22, 1)","margin":"10px auto","borderColor":"#ccc","backgroundColor":"rgba(127, 78, 22, 1)","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"60%","fontSize":"14px","borderStyle":"solid","height":"44px"}' class="layui-btn layui-btn-fluid layui-btn-danger btn-submit" lay-submit lay-filter="login">登录</button>
-            <p :style='{"color":"rgba(208, 2, 2, 1)","textAlign":"center","fontSize":"12px"}' class="txt"><a style="color: inherit;font-size: inherit;" v-if="item.hasFrontRegister=='是'" v-for="(item,index) in menu" v-bind:key="index" :href="'javascript:registerClick(\''+item.tableName+'\')'">注册{{item.roleName.replace('注册','')}}</a></p>
+			<button :style='{"padding":"100px 0","boxShadow":"0px 0px 0px 30px rgba(255,255,255,1)","margin":"-160px 0 50px 62%","borderColor":"#ccc","backgroundColor":"rgba(183, 186, 107, 1)","color":"#fff","borderRadius":"50%","borderWidth":"0","width":"200px","fontSize":"40px","lineHeight":"0","borderStyle":"solid","height":"44px"}' class="layui-btn layui-btn-fluid layui-btn-danger btn-submit" lay-submit lay-filter="login">登录</button>
+            <p :style='{"color":"rgba(40, 40, 40, 1)","textAlign":"center","fontSize":"12px"}' class="txt"><a style="color: inherit;font-size: inherit;" v-if="item.hasFrontRegister=='是'" v-for="(item,index) in menu" v-bind:key="index" :href="'javascript:registerClick(\''+item.tableName+'\')'">注册{{item.roleName.replace('注册','')}}</a></p>
         </form>
     </div>
 
@@ -150,11 +143,19 @@
     <script src="../../modules/config.js"></script>
     <!-- 工具方法 -->
     <script src="../../js/utils.js"></script>
-    <script type="text/javascript">
+	    <script type="text/javascript">
         var vue = new Vue({
             el: '#app',
             data: {
-                menu: menu
+                menu: menu,
+		roles: []
+            },
+            created(){
+                for(let item in this.menu) {
+                        if(this.menu[item].hasFrontLogin=='是') {
+                                this.roles.push(this.menu[item]);
+                        }
+                }       
             },
             methods: {
                 jump(url) {
@@ -243,28 +244,18 @@
 
             // 登录
             form.on('submit(login)', function(data) {
-		
-
                 data = data.field;
-                if (!data.role) {
-                    layer.msg('请选择登录用户类型', {
-                        time: 2000,
-                        icon: 5
-                    });
-                    return false;
+                if (vue.roles.length!=1) {
+                	if (!data.role) {
+			    layer.msg('请选择登录用户类型', {
+				time: 2000,
+				icon: 5
+			    });
+			    return false;
+			}
+                } else {
+                        data.role = vue.roles[0].tableName;
                 }
-		if(false) {
-			var arr = []
-			for(var i = 0;i<codes.length;i++) {
-				arr.push(codes[i].num)
-			}
-			if(arr.join('').toLowerCase() != jquery('#code').val().toLowerCase()) {
-				alert("请输入正确的验证码");
-				randomString()
-				
-				return false;
-			}
-		}
                 http.request(data.role + '/login', 'get', data, function(res) {
                     layer.msg('登录成功', {
                         time: 2000,
@@ -272,7 +263,13 @@
                     });
                     // 登录凭证
                     localStorage.setItem('Token', res.token);
-                    localStorage.setItem('role', jquery('#role:checked').attr('title'));
+                    var roleName = "";
+                    if(typeof(jquery('#role:checked').attr('title')) == "undefined") {
+                    	roleName = vue.roles[0].roleName;
+                    } else {
+                    	roleName = jquery('#role:checked').attr('title');
+                    }
+                    localStorage.setItem('role', roleName);
                     // 当前登录用户角色
                     localStorage.setItem('userTable', data.role);
                     localStorage.setItem('sessionTable', data.role);
@@ -281,6 +278,9 @@
                     http.request(data.role + '/session', 'get', {}, function(res) {
                         // 用户id
                         localStorage.setItem('userid', res.data.id);
+		    	if(res.data.vip) {
+				localStorage.setItem('vip', res.data.vip);
+		    	}
                         // 路径访问设置
                         window.location.href = '../../index.html';
                     })

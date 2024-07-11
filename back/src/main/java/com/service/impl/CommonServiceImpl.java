@@ -56,4 +56,9 @@ public class CommonServiceImpl implements CommonService {
 		return commonDao.selectValue(params);
 	}
 
+	@Override
+	public List<Map<String, Object>> selectTimeStatValue(Map<String, Object> params) {
+		return commonDao.selectTimeStatValue(params);
+	}
+
 }

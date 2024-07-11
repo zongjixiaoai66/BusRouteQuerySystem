@@ -34,20 +34,22 @@ import com.utils.R;
 import com.utils.MD5Util;
 import com.utils.MPUtil;
 import com.utils.CommonUtil;
-
+import java.io.IOException;
 
 /**
  * 收藏表
  * 后端接口
  * @author 
  * @email 
- * @date 2021-04-17 15:15:30
+ * @date 2022-04-04 22:19:37
  */
 @RestController
 @RequestMapping("/storeup")
 public class StoreupController {
     @Autowired
     private StoreupService storeupService;
+
+
     
 
 
@@ -70,7 +72,8 @@ public class StoreupController {
      * 前端列表
      */
     @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params,StoreupEntity storeup, HttpServletRequest request){
+    public R list(@RequestParam Map<String, Object> params,StoreupEntity storeup, 
+		HttpServletRequest request){
     	if(!request.getSession().getAttribute("role").toString().equals("管理员")) {
     		storeup.setUserid((Long)request.getSession().getAttribute("userId"));
     	}
@@ -112,6 +115,7 @@ public class StoreupController {
     /**
      * 前端详情
      */
+	@IgnoreAuth
     @RequestMapping("/detail/{id}")
     public R detail(@PathVariable("id") Long id){
         StoreupEntity storeup = storeupService.selectById(id);
@@ -211,6 +215,11 @@ public class StoreupController {
 		return R.ok().put("count", count);
 	}
 	
+
+
+
+
+
 
 
 }

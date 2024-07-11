@@ -8,7 +8,7 @@
       label-width="80px"
 	  :style="{backgroundColor:addEditForm.addEditBoxColor}"
     >
-      <el-row>
+      <el-row >
       <el-col :span="12">
         <el-form-item class="input" v-if="type!='info'"  label="账号" prop="zhanghao">
           <el-input v-model="ruleForm.zhanghao" 
@@ -46,8 +46,20 @@
         </div>
       </el-col>
       <el-col :span="12">
+        <el-form-item class="input" v-if="type!='info'"  label="年龄" prop="nianling">
+          <el-input v-model="ruleForm.nianling" 
+              placeholder="年龄" clearable  :readonly="ro.nianling"></el-input>
+        </el-form-item>
+        <div v-else>
+          <el-form-item class="input" label="年龄" prop="nianling">
+              <el-input v-model="ruleForm.nianling" 
+                placeholder="年龄" readonly></el-input>
+          </el-form-item>
+        </div>
+      </el-col>
+      <el-col :span="12">
         <el-form-item class="select" v-if="type!='info'"  label="性别" prop="xingbie">
-          <el-select v-model="ruleForm.xingbie" placeholder="请选择性别">
+          <el-select :disabled="ro.xingbie" v-model="ruleForm.xingbie" placeholder="请选择性别">
             <el-option
                 v-for="(item,index) in xingbieOptions"
                 v-bind:key="index"
@@ -75,18 +87,6 @@
           </el-form-item>
         </div>
       </el-col>
-      <el-col :span="12">
-        <el-form-item class="input" v-if="type!='info'"  label="邮箱" prop="youxiang">
-          <el-input v-model="ruleForm.youxiang" 
-              placeholder="邮箱" clearable  :readonly="ro.youxiang"></el-input>
-        </el-form-item>
-        <div v-else>
-          <el-form-item class="input" label="邮箱" prop="youxiang">
-              <el-input v-model="ruleForm.youxiang" 
-                placeholder="邮箱" readonly></el-input>
-          </el-form-item>
-        </div>
-      </el-col>
       <el-col :span="24">  
         <el-form-item class="upload" v-if="type!='info' && !ro.zhaopian" label="照片" prop="zhaopian">
           <file-upload
@@ -100,13 +100,13 @@
         </el-form-item>
         <div v-else>
           <el-form-item v-if="ruleForm.zhaopian" label="照片" prop="zhaopian">
-            <img style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in ruleForm.zhaopian.split(',')" :src="item" width="100" height="100">
+            <img style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in ruleForm.zhaopian.split(',')" :src="$base.url+item" width="100" height="100">
           </el-form-item>
         </div>
       </el-col>
       </el-row>
       <el-form-item class="btn">
-        <el-button v-if="type!='info'" type="primary" class="btn-success" @click="onSubmit">提交</el-button>
+        <el-button  v-if="type!='info'" type="primary" class="btn-success" @click="onSubmit">提交</el-button>
         <el-button v-if="type!='info'" class="btn-close" @click="back()">取消</el-button>
         <el-button v-if="type=='info'" class="btn-close" @click="back()">返回</el-button>
       </el-form-item>
@@ -185,25 +185,25 @@ export default {
       }
     };
     return {
-	  addEditForm: {"btnSaveFontColor":"rgba(34, 32, 32, 1)","selectFontSize":"14px","btnCancelBorderColor":"#DCDFE6","inputBorderRadius":"16px","inputFontSize":"14px","textareaBgColor":"rgba(207, 199, 199, 0.13)","btnSaveFontSize":"14px","textareaBorderRadius":"16px","uploadBgColor":"rgba(207, 199, 199, 0.13)","textareaBorderStyle":"solid","btnCancelWidth":"88px","textareaHeight":"120px","dateBgColor":"rgba(207, 199, 199, 0.13)","btnSaveBorderRadius":"16px","uploadLableFontSize":"14px","textareaBorderWidth":"1px","inputLableColor":"#606266","addEditBoxColor":"rgba(238, 221, 221, 0.32)","dateIconFontSize":"14px","btnSaveBgColor":"#409EFF","uploadIconFontColor":"#8c939d","textareaBorderColor":"#DCDFE6","btnCancelBgColor":"rgba(84, 244, 185, 1)","selectLableColor":"#606266","btnSaveBorderStyle":"solid","dateBorderWidth":"1px","dateLableFontSize":"14px","dateBorderRadius":"16px","btnCancelBorderStyle":"solid","selectLableFontSize":"14px","selectBorderStyle":"solid","selectIconFontColor":"#C0C4CC","btnCancelHeight":"44px","inputHeight":"40px","btnCancelFontColor":"rgba(23, 23, 24, 1)","dateBorderColor":"#DCDFE6","dateIconFontColor":"#C0C4CC","uploadBorderStyle":"solid","dateBorderStyle":"solid","dateLableColor":"#606266","dateFontSize":"14px","inputBorderWidth":"1px","uploadIconFontSize":"28px","selectHeight":"40px","inputFontColor":"rgba(25, 26, 27, 1)","uploadHeight":"148px","textareaLableColor":"#606266","textareaLableFontSize":"14px","btnCancelFontSize":"14px","inputBorderStyle":"solid","btnCancelBorderRadius":"16px","inputBgColor":"rgba(207, 199, 199, 0.13)","inputLableFontSize":"14px","uploadLableColor":"#606266","uploadBorderRadius":"16px","btnSaveHeight":"44px","selectBgColor":"rgba(207, 199, 199, 0.13)","btnSaveWidth":"88px","selectIconFontSize":"14px","dateHeight":"40px","selectBorderColor":"#DCDFE6","inputBorderColor":"#DCDFE6","uploadBorderColor":"#DCDFE6","textareaFontColor":"rgba(25, 26, 27, 1)","selectBorderWidth":"1px","dateFontColor":"rgba(255, 69, 0, 0.66)","btnCancelBorderWidth":"1px","uploadBorderWidth":"1px","textareaFontSize":"14px","selectBorderRadius":"16px","selectFontColor":"rgba(25, 26, 27, 1)","btnSaveBorderColor":"#409EFF","btnSaveBorderWidth":"1px"},
+	  addEditForm: {"btnSaveFontColor":"#fff","selectFontSize":"14px","btnCancelBorderColor":"rgba(45, 132, 94, 1)","inputBorderRadius":"30px","inputFontSize":"14px","textareaBgColor":"#fff","btnSaveFontSize":"14px","textareaBorderRadius":"30px","uploadBgColor":"#fff","textareaBorderStyle":"solid","btnCancelWidth":"88px","textareaHeight":"120px","dateBgColor":"#fff","btnSaveBorderRadius":"4px","uploadLableFontSize":"14px","textareaBorderWidth":"2px","inputLableColor":"#606266","addEditBoxColor":"rgba(255, 255, 255, 1)","dateIconFontSize":"14px","btnSaveBgColor":"rgba(45, 132, 94, 1)","uploadIconFontColor":"rgba(45, 132, 94, 1)","textareaBorderColor":"rgba(45, 132, 94, 1)","btnCancelBgColor":"rgba(255, 255, 255, 1)","selectLableColor":"#606266","btnSaveBorderStyle":"double","dateBorderWidth":"2px","dateLableFontSize":"14px","dateBorderRadius":"30px","btnCancelBorderStyle":"double","selectLableFontSize":"14px","selectBorderStyle":"solid","selectIconFontColor":"rgba(45, 132, 94, 1)","btnCancelHeight":"44px","inputHeight":"40px","btnCancelFontColor":"rgba(45, 132, 94, 1)","dateBorderColor":"rgba(45, 132, 94, 1)","dateIconFontColor":"rgba(45, 132, 94, 1)","uploadBorderStyle":"solid","dateBorderStyle":"solid","dateLableColor":"#606266","dateFontSize":"14px","inputBorderWidth":"2px","uploadIconFontSize":"28px","selectHeight":"40px","inputFontColor":"#606266","uploadHeight":"148px","textareaLableColor":"#606266","textareaLableFontSize":"14px","btnCancelFontSize":"14px","inputBorderStyle":"solid","btnCancelBorderRadius":"4px","inputBgColor":"#fff","inputLableFontSize":"14px","uploadLableColor":"#606266","uploadBorderRadius":"30px","btnSaveHeight":"44px","selectBgColor":"#fff","btnSaveWidth":"88px","selectIconFontSize":"14px","dateHeight":"40px","selectBorderColor":"rgba(45, 132, 94, 1)","inputBorderColor":"rgba(45, 132, 94, 1)","uploadBorderColor":"rgba(45, 132, 94, 1)","textareaFontColor":"#606266","selectBorderWidth":"2px","dateFontColor":"#606266","btnCancelBorderWidth":"4px","uploadBorderWidth":"2px","textareaFontSize":"14px","selectBorderRadius":"30px","selectFontColor":"#606266","btnSaveBorderColor":"rgba(255, 255, 255, 1)","btnSaveBorderWidth":"4px"},
       id: '',
       type: '',
       ro:{
 	zhanghao : false,
 	mima : false,
 	xingming : false,
+	nianling : false,
 	xingbie : false,
 	shouji : false,
-	youxiang : false,
 	zhaopian : false,
       },
       ruleForm: {
         zhanghao: '',
         mima: '',
         xingming: '',
+        nianling: '',
         xingbie: '',
         shouji: '',
-        youxiang: '',
         zhaopian: '',
       },
           xingbieOptions: [],
@@ -215,14 +215,15 @@ export default {
                 { required: true, message: '密码不能为空', trigger: 'blur' },
           ],
           xingming: [
+                { required: true, message: '姓名不能为空', trigger: 'blur' },
+          ],
+          nianling: [
+                { validator: validateIntNumber, trigger: 'blur' },
           ],
           xingbie: [
           ],
           shouji: [
                 { validator: validateMobile, trigger: 'blur' },
-          ],
-          youxiang: [
-                { validator: validateEmail, trigger: 'blur' },
           ],
           zhaopian: [
           ],
@@ -231,6 +232,9 @@ export default {
   },
   props: ["parent"],
   computed: {
+
+
+
   },
   created() {
 	this.addEditStyleChange()
@@ -248,6 +252,9 @@ export default {
         this.type = type;
       }
       if(this.type=='info'||this.type=='else'){
+        this.info(id);
+      }else if(this.type=='logistics'){
+        this.logistics=false;
         this.info(id);
       }else if(this.type=='cross'){
         var obj = this.$storage.getObj('crossObj');
@@ -267,6 +274,11 @@ export default {
 	    this.ro.xingming = true;
             continue;
           }
+          if(o=='nianling'){
+            this.ruleForm.nianling = obj[o];
+	    this.ro.nianling = true;
+            continue;
+          }
           if(o=='xingbie'){
             this.ruleForm.xingbie = obj[o];
 	    this.ro.xingbie = true;
@@ -275,11 +287,6 @@ export default {
           if(o=='shouji'){
             this.ruleForm.shouji = obj[o];
 	    this.ro.shouji = true;
-            continue;
-          }
-          if(o=='youxiang'){
-            this.ruleForm.youxiang = obj[o];
-	    this.ro.youxiang = true;
             continue;
           }
           if(o=='zhaopian'){
@@ -317,15 +324,10 @@ export default {
         }
       });
     },
+
+
     // 提交
     onSubmit() {
-      // ${column.compare}
-      // ${column.compare}
-      // ${column.compare}
-      // ${column.compare}
-      // ${column.compare}
-      // ${column.compare}
-      // ${column.compare}
 
 
 
@@ -333,32 +335,124 @@ export default {
 
 
 
-      this.$refs["ruleForm"].validate(valid => {
-        if (valid) {
-          this.$http({
-            url: `yonghu/${!this.ruleForm.id ? "save" : "update"}`,
-            method: "post",
-            data: this.ruleForm
-          }).then(({ data }) => {
-            if (data && data.code === 0) {
-              this.$message({
-                message: "操作成功",
-                type: "success",
-                duration: 1500,
-                onClose: () => {
-                  this.parent.showFlag = true;
-                  this.parent.addOrUpdateFlag = false;
-                  this.parent.yonghuCrossAddOrUpdateFlag = false;
-                  this.parent.search();
-                  this.parent.contentStyleChange();
+
+
+
+
+
+
+
+	if(this.ruleForm.zhaopian!=null) {
+		this.ruleForm.zhaopian = this.ruleForm.zhaopian.replace(new RegExp(this.$base.url,"g"),"");
+	}
+
+var objcross = this.$storage.getObj('crossObj');
+
+      //更新跨表属性
+       var crossuserid;
+       var crossrefid;
+       var crossoptnum;
+       if(this.type=='cross'){
+                var statusColumnName = this.$storage.get('statusColumnName');
+                var statusColumnValue = this.$storage.get('statusColumnValue');
+                if(statusColumnName!='') {
+                        var obj = this.$storage.getObj('crossObj');
+                       if(!statusColumnName.startsWith("[")) {
+                               for (var o in obj){
+                                 if(o==statusColumnName){
+                                   obj[o] = statusColumnValue;
+                                 }
+                               }
+                               var table = this.$storage.get('crossTable');
+                             this.$http({
+                                 url: `${table}/update`,
+                                 method: "post",
+                                 data: obj
+                               }).then(({ data }) => {});
+                       } else {
+                               crossuserid=this.$storage.get('userid');
+                               crossrefid=obj['id'];
+                               crossoptnum=this.$storage.get('statusColumnName');
+                               crossoptnum=crossoptnum.replace(/\[/,"").replace(/\]/,"");
+                        }
                 }
-              });
-            } else {
-              this.$message.error(data.msg);
-            }
-          });
         }
-      });
+       this.$refs["ruleForm"].validate(valid => {
+         if (valid) {
+		 if(crossrefid && crossuserid) {
+			 this.ruleForm.crossuserid = crossuserid;
+			 this.ruleForm.crossrefid = crossrefid;
+			let params = { 
+				page: 1, 
+				limit: 10, 
+				crossuserid:this.ruleForm.crossuserid,
+				crossrefid:this.ruleForm.crossrefid,
+			} 
+			this.$http({ 
+				url: "yonghu/page", 
+				method: "get", 
+				params: params 
+			}).then(({ 
+				data 
+			}) => { 
+				if (data && data.code === 0) { 
+				       if(data.data.total>=crossoptnum) {
+					     this.$message.error(this.$storage.get('tips'));
+					       return false;
+				       } else {
+					 this.$http({
+					   url: `yonghu/${!this.ruleForm.id ? "save" : "update"}`,
+					   method: "post",
+					   data: this.ruleForm
+					 }).then(({ data }) => {
+					   if (data && data.code === 0) {
+					     this.$message({
+					       message: "操作成功",
+					       type: "success",
+					       duration: 1500,
+					       onClose: () => {
+						 this.parent.showFlag = true;
+						 this.parent.addOrUpdateFlag = false;
+						 this.parent.yonghuCrossAddOrUpdateFlag = false;
+						 this.parent.search();
+						 this.parent.contentStyleChange();
+					       }
+					     });
+					   } else {
+					     this.$message.error(data.msg);
+					   }
+					 });
+
+				       }
+				} else { 
+				} 
+			});
+		 } else {
+			 this.$http({
+			   url: `yonghu/${!this.ruleForm.id ? "save" : "update"}`,
+			   method: "post",
+			   data: this.ruleForm
+			 }).then(({ data }) => {
+			   if (data && data.code === 0) {
+			     this.$message({
+			       message: "操作成功",
+			       type: "success",
+			       duration: 1500,
+			       onClose: () => {
+				 this.parent.showFlag = true;
+				 this.parent.addOrUpdateFlag = false;
+				 this.parent.yonghuCrossAddOrUpdateFlag = false;
+				 this.parent.search();
+				 this.parent.contentStyleChange();
+			       }
+			     });
+			   } else {
+			     this.$message.error(data.msg);
+			   }
+			 });
+		 }
+         }
+       });
     },
     // 获取uuid
     getUUID () {
@@ -373,7 +467,7 @@ export default {
     },
     zhaopianUploadChange(fileUrls) {
 	this.ruleForm.zhaopian = fileUrls;
-			this.addEditUploadStyleChange()
+	this.addEditUploadStyleChange()
     },
 	addEditStyleChange() {
 	  this.$nextTick(()=>{
@@ -534,6 +628,7 @@ export default {
 }
 .detail-form-content {
 	padding: 12px;
+	background-color: transparent;
 }
 .btn .el-button {
   padding: 0;

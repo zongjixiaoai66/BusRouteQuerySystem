@@ -15,7 +15,7 @@ import java.io.Serializable;
  * （通常后端关联的表或者自定义的字段需要返回使用）
  * @author 
  * @email 
- * @date 2021-04-17 15:15:30
+ * @date 2022-04-04 22:19:37
  */
 @TableName("storeup")
 public class StoreupView  extends StoreupEntity implements Serializable {

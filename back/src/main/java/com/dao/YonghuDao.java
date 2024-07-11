@@ -3,6 +3,7 @@ package com.dao;
 import com.entity.YonghuEntity;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import java.util.List;
+import java.util.Map;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.pagination.Pagination;
 
@@ -16,7 +17,7 @@ import com.entity.view.YonghuView;
  * 
  * @author 
  * @email 
- * @date 2021-04-17 15:15:29
+ * @date 2022-04-04 22:19:36
  */
 public interface YonghuDao extends BaseMapper<YonghuEntity> {
 	
@@ -30,4 +31,5 @@ public interface YonghuDao extends BaseMapper<YonghuEntity> {
 	
 	YonghuView selectView(@Param("ew") Wrapper<YonghuEntity> wrapper);
 	
+
 }

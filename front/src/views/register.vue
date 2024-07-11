@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="container">
-      <div class="login-form" style="backgroundColor:rgba(247, 240, 240, 0.7);borderRadius:10px">
-        <h1 class="h1" style="color:#000;fontSize:28px;">宠物咖啡馆平台注册</h1>
-		<el-form ref="rgsForm" class="rgs-form" :model="rgsForm" label-width="120px">
+        <div class="container">
+      <div class="login-form">
+        <h1 class="h1">公交线路查询系统注册</h1>
+		<el-form ref="rgsForm" class="rgs-form" :model="rgsForm">
 			<!-- <div v-if="tableName=='yonghu'" class="input-group">
 			   <div class="label">账号</div>
 			   <div class="input-container">
@@ -22,6 +22,10 @@
 			<el-form-item label="密码" class="input" v-if="tableName=='yonghu'">
 			  <el-input v-model="ruleForm.mima" autocomplete="off" placeholder="密码" type="password"#elsetype="text" />
 			</el-form-item>
+			<el-form-item label="确认密码" class="input" v-if="tableName=='yonghu'">
+			  <el-input v-model="ruleForm.mima2" autocomplete="off" placeholder="确认密码" type="password"/>
+			</el-form-item>
+
 			<!-- <div v-if="tableName=='yonghu'" class="input-group">
 			   <div class="label">姓名</div>
 			   <div class="input-container">
@@ -32,6 +36,15 @@
 			  <el-input v-model="ruleForm.xingming" autocomplete="off" placeholder="姓名"  />
 			</el-form-item>
 			<!-- <div v-if="tableName=='yonghu'" class="input-group">
+			   <div class="label">年龄</div>
+			   <div class="input-container">
+			     <input v-model="ruleForm.nianling" class="input" type="text" placeholder="年龄">
+			   </div>
+			 </div> -->
+			<el-form-item label="年龄" class="input" v-if="tableName=='yonghu'">
+			  <el-input v-model="ruleForm.nianling" autocomplete="off" placeholder="年龄"  />
+			</el-form-item>
+			<!-- <div v-if="tableName=='yonghu'" class="input-group">
 			   <div class="label">手机</div>
 			   <div class="input-container">
 			     <input v-model="ruleForm.shouji" class="input" type="text" placeholder="手机">
@@ -39,60 +52,6 @@
 			 </div> -->
 			<el-form-item label="手机" class="input" v-if="tableName=='yonghu'">
 			  <el-input v-model="ruleForm.shouji" autocomplete="off" placeholder="手机"  />
-			</el-form-item>
-			<!-- <div v-if="tableName=='yonghu'" class="input-group">
-			   <div class="label">邮箱</div>
-			   <div class="input-container">
-			     <input v-model="ruleForm.youxiang" class="input" type="text" placeholder="邮箱">
-			   </div>
-			 </div> -->
-			<el-form-item label="邮箱" class="input" v-if="tableName=='yonghu'">
-			  <el-input v-model="ruleForm.youxiang" autocomplete="off" placeholder="邮箱"  />
-			</el-form-item>
-			<!-- <div v-if="tableName=='kanhushi'" class="input-group">
-			   <div class="label">工号</div>
-			   <div class="input-container">
-			     <input v-model="ruleForm.gonghao" class="input" type="text" placeholder="工号">
-			   </div>
-			 </div> -->
-			<el-form-item label="工号" class="input" v-if="tableName=='kanhushi'">
-			  <el-input v-model="ruleForm.gonghao" autocomplete="off" placeholder="工号"  />
-			</el-form-item>
-			<!-- <div v-if="tableName=='kanhushi'" class="input-group">
-			   <div class="label">密码</div>
-			   <div class="input-container">
-			     <input v-model="ruleForm.mima" class="input" type="text" placeholder="密码">
-			   </div>
-			 </div> -->
-			<el-form-item label="密码" class="input" v-if="tableName=='kanhushi'">
-			  <el-input v-model="ruleForm.mima" autocomplete="off" placeholder="密码" type="password"#elsetype="text" />
-			</el-form-item>
-			<!-- <div v-if="tableName=='kanhushi'" class="input-group">
-			   <div class="label">看护姓名</div>
-			   <div class="input-container">
-			     <input v-model="ruleForm.kanhuxingming" class="input" type="text" placeholder="看护姓名">
-			   </div>
-			 </div> -->
-			<el-form-item label="看护姓名" class="input" v-if="tableName=='kanhushi'">
-			  <el-input v-model="ruleForm.kanhuxingming" autocomplete="off" placeholder="看护姓名"  />
-			</el-form-item>
-			<!-- <div v-if="tableName=='kanhushi'" class="input-group">
-			   <div class="label">手机</div>
-			   <div class="input-container">
-			     <input v-model="ruleForm.shouji" class="input" type="text" placeholder="手机">
-			   </div>
-			 </div> -->
-			<el-form-item label="手机" class="input" v-if="tableName=='kanhushi'">
-			  <el-input v-model="ruleForm.shouji" autocomplete="off" placeholder="手机"  />
-			</el-form-item>
-			<!-- <div v-if="tableName=='kanhushi'" class="input-group">
-			   <div class="label">邮箱</div>
-			   <div class="input-container">
-			     <input v-model="ruleForm.youxiang" class="input" type="text" placeholder="邮箱">
-			   </div>
-			 </div> -->
-			<el-form-item label="邮箱" class="input" v-if="tableName=='kanhushi'">
-			  <el-input v-model="ruleForm.youxiang" autocomplete="off" placeholder="邮箱"  />
 			</el-form-item>
 			<div style="display: flex;flex-wrap: wrap;width: 100%;justify-content: center;">
 				<el-button class="btn" type="primary" @click="login()">注册</el-button>
@@ -109,18 +68,23 @@
   </div>
 </template>
 <script>
+
+
 export default {
   data() {
     return {
       ruleForm: {
       },
       tableName:"",
-      rules: {}
+      rules: {},
     };
   },
   mounted(){
     let table = this.$storage.get("loginTable");
     this.tableName = table;
+      },
+  created() {
+    
   },
   methods: {
     // 获取uuid
@@ -132,6 +96,7 @@ export default {
     },
     // 注册
     login() {
+	var url=this.tableName+"/register";
       if((!this.ruleForm.zhanghao) && `yonghu` == this.tableName){
         this.$message.error(`账号不能为空`);
         return
@@ -140,32 +105,24 @@ export default {
         this.$message.error(`密码不能为空`);
         return
       }
+      if((this.ruleForm.mima!=this.ruleForm.mima2) && `yonghu` == this.tableName){
+	    this.$message.error(`两次密码输入不一致`);
+	    return
+      }
+      if((!this.ruleForm.xingming) && `yonghu` == this.tableName){
+        this.$message.error(`姓名不能为空`);
+        return
+      }
+      if(`yonghu` == this.tableName && this.ruleForm.nianling&&(!this.$validate.isIntNumer(this.ruleForm.nianling))){
+        this.$message.error(`年龄应输入整数`);
+        return
+      }
       if(`yonghu` == this.tableName && this.ruleForm.shouji&&(!this.$validate.isMobile(this.ruleForm.shouji))){
         this.$message.error(`手机应输入手机格式`);
         return
       }
-      if(`yonghu` == this.tableName && this.ruleForm.youxiang&&(!this.$validate.isEmail(this.ruleForm.youxiang))){
-        this.$message.error(`邮箱应输入邮件格式`);
-        return
-      }
-      if((!this.ruleForm.gonghao) && `kanhushi` == this.tableName){
-        this.$message.error(`工号不能为空`);
-        return
-      }
-      if((!this.ruleForm.mima) && `kanhushi` == this.tableName){
-        this.$message.error(`密码不能为空`);
-        return
-      }
-      if(`kanhushi` == this.tableName && this.ruleForm.shouji&&(!this.$validate.isMobile(this.ruleForm.shouji))){
-        this.$message.error(`手机应输入手机格式`);
-        return
-      }
-      if(`kanhushi` == this.tableName && this.ruleForm.youxiang&&(!this.$validate.isEmail(this.ruleForm.youxiang))){
-        this.$message.error(`邮箱应输入邮件格式`);
-        return
-      }
       this.$http({
-        url: `${this.tableName}/register`,
+        url: url,
         method: "post",
         data:this.ruleForm
       }).then(({ data }) => {
@@ -343,85 +300,178 @@ export default {
 			}
 		}
 	}
-	
+
 	.container {
-		background-image: url("http://codegen.caihongy.cn/20201223/0bd1bfe19e8b4b6688866318c721ad82.jpg");
 		height: 100vh;
 		background-position: center center;
 		background-size: cover;
 		background-repeat: no-repeat;
-	
+    				background-image: url(http://codegen.caihongy.cn/20220103/0715f7bb8c84431ca4acd1ab047ba9ec.png);
+		    
 		.login-form {
 			right: 50%;
 			top: 50%;
-			height: auto;
 			transform: translate3d(50%, -50%, 0);
 			border-radius: 10px;
 			background-color: rgba(255,255,255,.5);
-			width: 420px;
-			padding: 30px 30px 40px 30px;
 			font-size: 14px;
 			font-weight: 500;
-			
+      box-sizing: border-box;
+
+			width: 450px;
+			height: auto;
+			padding: 15px;
+			margin: 0 auto;
+			border-radius: 30px 30px 0 0 ;
+			border-width: 21px 20px 0 20px;
+			border-style: solid;
+			border-color: rgba(255, 255, 255, 1);
+			background-color: rgba(44, 130, 94, 1);
+			box-shadow: 0px 0px 0px 15px rgba(44,130,94,1);
+
 			.h1 {
-				margin: 0;
+				width: 80%;
+				height: auto;
+				line-height:auto;
+				color: rgba(255, 255, 255, 1);
+				font-size: 28px;
+				padding: 0;
+				margin: 10px auto 25px;
+				border-radius: 0;
+				border-width: 0;
+				border-style: solid;
+				border-color: rgba(255,0,0,0);
+				background-color: rgba(255,0,0,0);
+				box-shadow: 0 0 6px rgba(255,0,0,0);
 				text-align: center;
-				line-height: 54px;
-			    font-size: 24px;
-			    color: #000;
 			}
-				
+
 			.rgs-form {
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
-				
+
+        .el-form-item {
+          width: 100%;
+          display: flex;
+
+          & /deep/ .el-form-item__content {
+            flex: 1;
+            display: flex;
+          }
+        }
+
 				.input {
-					width: 100%;
-					
+          width: 90%;
+          height:auto;
+          padding: 0;
+          margin: 0 0 12px 0;
+          border-radius: 0;
+          border-width: 0;
+          border-style: solid;
+          border-color: rgba(255,0,0,0);
+          background-color: rgba(255,0,0,0);
+          box-shadow: 0 0 6px rgba(255,0,0,0);
+
 					& /deep/ .el-form-item__label {
-						line-height: 40px;
-						color: 14px;
-						font-size: #606266;
+            width: 70px;
+            line-height:44px;
+            color: rgba(255, 255, 255, 1);
+            font-size: 14px;
+            padding: 0 10px 0 0;
+            margin: 0;
+            border-radius: 0;
+            border-width: 0;
+            border-style: solid;
+            border-color: rgba(255,0,0,0);
+            background-color: rgba(255,0,0,0);
+            box-shadow: 0 0 6px rgba(255,0,0,0);
 					}
-					
+
 					& /deep/ .el-input__inner {
-						height: 40px;
-						color: rgba(12, 12, 13, 1);
-						font-size: 14px;
-						border-width: 1px;
-						border-style: solid;
-						border-color: rgba(18, 18, 18, 1);
-						border-radius: 4px;
-						background-color: #fff;
+            width: 100%;
+            height: 44px;
+            line-height:44px;
+            color: #606266;
+            font-size: 14px;
+            padding: 0 12px;
+            margin: 0;
+            border-radius: 4px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: #606266;
+            background-color: #fff;
+            box-shadow: 0 0 6px rgba(255,0,0,0);
+            text-align: left;
 					}
 				}
-				
+
+        .send-code {
+          & /deep/ .el-input__inner {
+            width: 180px;
+            height: 44px;
+            line-height:44px;
+            color: #606266;
+            font-size: 14px;
+            padding: 0 12px;
+            margin: 0;
+            border-radius: 0;
+            border-width: 0;
+            border-style: solid;
+            border-color: #606266;
+            background-color: #fff;
+            box-shadow: 0 0 6px rgba(255,0,0,0);
+            text-align: left;
+          }
+
+          .register-code {
+            margin: 0;
+            padding: 0;
+            width: 90px;
+            height: 44px;
+            line-height:44px;
+            color: #fff;
+            font-size: 14px;
+            border-width: 2px;
+            border-style: solid;
+            border-color: rgba(255, 255, 255, 1);
+            border-radius: 0;
+            background-color: rgba(44, 130, 94, 1);
+            box-shadow: 0 0 6px rgba(255,0,0,0);
+          }
+        }
+
 				.btn {
 					margin: 0 10px;
+          padding: 0;
 					width: 88px;
 					height: 44px;
-					color: #fff;
+          line-height:44px;
+					color: rgba(44, 130, 94, 1);
 					font-size: 14px;
 					border-width: 1px;
 					border-style: solid;
-					border-color: #409EFF;
+					border-color: rgba(255, 255, 255, 1);
 					border-radius: 4px;
-					background-color: #409EFF;
+					background-color: rgba(255, 255, 255, 1);
+          box-shadow: 0 0 6px rgba(255,0,0,0);
 				}
 
 				.close {
-					margin: 0 10px;
-					width: 88px;
-					height: 44px;
-					color: #409EFF;
-					font-size: 14px;
-					border-width: 1px;
-					border-style: solid;
-					border-color: #409EFF;
-					border-radius: 4px;
-					background-color: #FFF;
+          margin: 0 10px;
+          padding: 0;
+          width: 88px;
+          height: 44px;
+          line-height:44px;
+          color: rgba(116, 116, 116, 1);
+          font-size: 14px;
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgba(44, 130, 94, 1);
+          border-radius: 4px;
+          background-color: #FFF;
+          box-shadow: 0 0 6px rgba(255,0,0,0);
 				}
 
 			}

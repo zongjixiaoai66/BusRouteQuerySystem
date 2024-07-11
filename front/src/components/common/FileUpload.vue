@@ -85,8 +85,7 @@ export default {
     // 上传文件成功后执行
     handleUploadSuccess(res, file, fileList) {
       if (res && res.code === 0) {
-        fileList[fileList.length - 1]["url"] =
-          this.$base.url + "upload/" + file.response.file;
+        fileList[fileList.length - 1]["url"] = "upload/" + file.response.file;
         this.setFileList(fileList);
         this.$emit("change", this.fileUrlList.join(","));
       } else {
@@ -117,8 +116,12 @@ export default {
       var fileUrlArray = [];
       // 有些图片不是公开的，所以需要携带token信息做权限校验
       var token = storage.get("token");
+      let _this = this;
       fileList.forEach(function(item, index) {
         var url = item.url.split("?")[0];
+	if(!url.startsWith("http")) {
+	  url = _this.$base.url+url
+	}
         var name = item.name;
         var file = {
           name: name,

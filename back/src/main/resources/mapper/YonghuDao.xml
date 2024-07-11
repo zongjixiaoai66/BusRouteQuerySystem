@@ -8,9 +8,9 @@
         <result property="zhanghao" column="zhanghao"/>
         <result property="mima" column="mima"/>
         <result property="xingming" column="xingming"/>
+        <result property="nianling" column="nianling"/>
         <result property="xingbie" column="xingbie"/>
         <result property="shouji" column="shouji"/>
-        <result property="youxiang" column="youxiang"/>
         <result property="zhaopian" column="zhaopian"/>
     </resultMap>
 
@@ -38,4 +38,5 @@
 		SELECT * FROM yonghu  yonghu <where> 1=1 ${ew.sqlSegment}</where>
 	</select>
 	
+
 </mapper>

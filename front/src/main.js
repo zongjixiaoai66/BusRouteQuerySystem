@@ -24,6 +24,7 @@ import { isAuth, getCurDate, getCurDateTime } from '@/utils/utils'
 import storage from "@/utils/storage";
 // 上传组件
 import FileUpload from "@/components/common/FileUpload";
+import ExcelFileUpload from "@/components/common/ExcelFileUpload";
 // 富文本编辑组件
 import Editor from "@/components/common/Editor";
 // api 接口
@@ -65,6 +66,7 @@ Vue.config.productionTip = false
 // 组件全局组件
 Vue.component('bread-crumbs', BreadCrumbs)
 Vue.component('file-upload', FileUpload)
+Vue.component('excel-file-upload', ExcelFileUpload)
 Vue.component('editor', Editor)
 //excel导出
 Vue.component('downloadExcel', JsonExcel)

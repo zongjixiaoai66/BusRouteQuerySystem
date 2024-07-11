@@ -17,6 +17,7 @@ import com.annotation.IgnoreAuth;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.entity.ConfigEntity;
 import com.service.ConfigService;
+import com.utils.MPUtil;
 import com.utils.PageUtils;
 import com.utils.R;
 import com.utils.ValidatorUtils;
@@ -37,7 +38,7 @@ public class ConfigController{
     @RequestMapping("/page")
     public R page(@RequestParam Map<String, Object> params,ConfigEntity config){
         EntityWrapper<ConfigEntity> ew = new EntityWrapper<ConfigEntity>();
-    	PageUtils page = configService.queryPage(params);
+    	PageUtils page = configService.queryPage(params, MPUtil.sort(MPUtil.between(MPUtil.likeOrEq(ew, config), params), params));
         return R.ok().put("data", page);
     }
     
@@ -48,7 +49,7 @@ public class ConfigController{
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params,ConfigEntity config){
         EntityWrapper<ConfigEntity> ew = new EntityWrapper<ConfigEntity>();
-    	PageUtils page = configService.queryPage(params);
+    	PageUtils page = configService.queryPage(params, MPUtil.sort(MPUtil.between(MPUtil.likeOrEq(ew, config), params), params));
         return R.ok().put("data", page);
     }
 

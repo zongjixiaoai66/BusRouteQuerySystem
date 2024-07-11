@@ -10,10 +10,10 @@
 	</parent>
 	<groupId>com.jlwl</groupId>
 	<!-- 导入项目的名称 -->
-	<artifactId>T064</artifactId>
+	<artifactId>springbootmf383</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springboot-schema</name>
-	<description>宠物咖啡馆平台</description>
+	<description>springboot学习框架</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -100,6 +100,19 @@
     		<artifactId>java-sdk</artifactId>
     		<version>4.4.1</version>
 		</dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.11</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.9</version>
+        </dependency>
+
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

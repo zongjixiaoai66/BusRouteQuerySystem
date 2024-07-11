@@ -5,6 +5,7 @@
       ref="ruleForm"
       :model="ruleForm"
       label-width="80px"
+	  style="background: transparent;"
     >  
      <el-row>
       <el-col :span="12">
@@ -18,8 +19,13 @@
         </el-form-item>
       </el-col>
       <el-col :span="12">
+        <el-form-item   v-if="flag=='yonghu'"  label="年龄" prop="nianling">
+          <el-input v-model="ruleForm.nianling"               placeholder="年龄" clearable></el-input>
+        </el-form-item>
+      </el-col>
+      <el-col :span="12">
         <el-form-item v-if="flag=='yonghu'"  label="性别" prop="xingbie">
-          <el-select v-model="ruleForm.xingbie" placeholder="请选择性别">
+          <el-select v-model="ruleForm.xingbie"  placeholder="请选择性别">
             <el-option
                 v-for="(item,index) in yonghuxingbieOptions"
                 v-bind:key="index"
@@ -34,11 +40,6 @@
           <el-input v-model="ruleForm.shouji"               placeholder="手机" clearable></el-input>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
-        <el-form-item   v-if="flag=='yonghu'"  label="邮箱" prop="youxiang">
-          <el-input v-model="ruleForm.youxiang"               placeholder="邮箱" clearable></el-input>
-        </el-form-item>
-      </el-col>
       <el-col :span="24">  
         <el-form-item v-if="flag=='yonghu'" label="照片" prop="zhaopian">
           <file-upload
@@ -48,50 +49,6 @@
           :multiple="true"
           :fileUrls="ruleForm.zhaopian?ruleForm.zhaopian:''"
           @change="yonghuzhaopianUploadChange"
-          ></file-upload>
-        </el-form-item>
-      </el-col>
-      <el-col :span="12">
-        <el-form-item   v-if="flag=='kanhushi'"  label="工号" prop="gonghao">
-          <el-input v-model="ruleForm.gonghao" readonly              placeholder="工号" clearable></el-input>
-        </el-form-item>
-      </el-col>
-      <el-col :span="12">
-        <el-form-item   v-if="flag=='kanhushi'"  label="看护姓名" prop="kanhuxingming">
-          <el-input v-model="ruleForm.kanhuxingming"               placeholder="看护姓名" clearable></el-input>
-        </el-form-item>
-      </el-col>
-      <el-col :span="12">
-        <el-form-item v-if="flag=='kanhushi'"  label="性别" prop="xingbie">
-          <el-select v-model="ruleForm.xingbie" placeholder="请选择性别">
-            <el-option
-                v-for="(item,index) in kanhushixingbieOptions"
-                v-bind:key="index"
-                :label="item"
-                :value="item">
-            </el-option>
-          </el-select>
-        </el-form-item>
-      </el-col>
-      <el-col :span="12">
-        <el-form-item   v-if="flag=='kanhushi'"  label="手机" prop="shouji">
-          <el-input v-model="ruleForm.shouji"               placeholder="手机" clearable></el-input>
-        </el-form-item>
-      </el-col>
-      <el-col :span="12">
-        <el-form-item   v-if="flag=='kanhushi'"  label="邮箱" prop="youxiang">
-          <el-input v-model="ruleForm.youxiang"               placeholder="邮箱" clearable></el-input>
-        </el-form-item>
-      </el-col>
-      <el-col :span="24">  
-        <el-form-item v-if="flag=='kanhushi'" label="照片" prop="zhaopian">
-          <file-upload
-          tip="点击上传照片"
-          action="file/upload"
-          :limit="3"
-          :multiple="true"
-          :fileUrls="ruleForm.zhaopian?ruleForm.zhaopian:''"
-          @change="kanhushizhaopianUploadChange"
           ></file-upload>
         </el-form-item>
       </el-col>
@@ -119,7 +76,6 @@ export default {
       flag: '',
       usersFlag: false,
       yonghuxingbieOptions: [],
-      kanhushixingbieOptions: [],
     };
   },
   mounted() {
@@ -136,13 +92,9 @@ export default {
       }
     });
     this.yonghuxingbieOptions = "男,女".split(',')
-    this.kanhushixingbieOptions = "男,女".split(',')
   },
   methods: {
     yonghuzhaopianUploadChange(fileUrls) {
-        this.ruleForm.zhaopian = fileUrls;
-    },
-    kanhushizhaopianUploadChange(fileUrls) {
         this.ruleForm.zhaopian = fileUrls;
     },
     onUpdateHandler() {
@@ -154,30 +106,21 @@ export default {
         this.$message.error('密码不能为空');
         return
       }
+      if((!this.ruleForm.xingming)&& 'yonghu'==this.flag){
+        this.$message.error('姓名不能为空');
+        return
+      }
+      if( 'yonghu' ==this.flag && this.ruleForm.nianling&&(!isIntNumer(this.ruleForm.nianling))){
+       this.$message.error(`年龄应输入整数`);
+        return
+      }
       if( 'yonghu' ==this.flag && this.ruleForm.shouji&&(!isMobile(this.ruleForm.shouji))){
         this.$message.error(`手机应输入手机格式`);
         return
       }
-      if( 'yonghu' ==this.flag && this.ruleForm.youxiang&&(!isEmail(this.ruleForm.youxiang))){
-        this.$message.error(`邮箱应输入邮箱格式`);
-        return
-      }
-      if((!this.ruleForm.gonghao)&& 'kanhushi'==this.flag){
-        this.$message.error('工号不能为空');
-        return
-      }
-      if((!this.ruleForm.mima)&& 'kanhushi'==this.flag){
-        this.$message.error('密码不能为空');
-        return
-      }
-      if( 'kanhushi' ==this.flag && this.ruleForm.shouji&&(!isMobile(this.ruleForm.shouji))){
-        this.$message.error(`手机应输入手机格式`);
-        return
-      }
-      if( 'kanhushi' ==this.flag && this.ruleForm.youxiang&&(!isEmail(this.ruleForm.youxiang))){
-        this.$message.error(`邮箱应输入邮箱格式`);
-        return
-      }
+        if(this.ruleForm.zhaopian!=null) {
+                this.ruleForm.zhaopian = this.ruleForm.zhaopian.replace(new RegExp(this.$base.url,"g"),"");
+        }
       if('users'==this.flag && this.ruleForm.username.trim().length<1) {
 	this.$message.error(`用户名不能为空`);
         return	

@@ -12,14 +12,14 @@
 			</div>
 		</el-menu>
 	</el-header> -->
-	<div class="navbar" :style="{backgroundColor:heads.headBgColor,height:heads.headHeight,boxShadow:heads.headBoxShadow,lineHeight:heads.headHeight}">
+	<div class="navbar" :style="{background:heads.headBgColor,height:heads.headHeight,boxShadow:heads.headBoxShadow,lineHeight:heads.headHeight}">
 		<div class="title-menu" :style="{justifyContent:heads.headTitleStyle=='1'?'flex-start':'center'}">
 			<el-image v-if="heads.headTitleImg" class="title-img" :style="{width:heads.headTitleImgWidth,height:heads.headTitleImgHeight,boxShadow:heads.headTitleImgBoxShadow,borderRadius:heads.headTitleImgBorderRadius}" :src="heads.headTitleImgUrl" fit="cover"></el-image>
 			<div class="title-name" :style="{color:heads.headFontColor,fontSize:heads.headFontSize}">{{this.$project.projectName}}</div>
 		</div>
 		<div class="right-menu">
 			<div class="user-info" :style="{color:heads.headUserInfoFontColor,fontSize:heads.headUserInfoFontSize}">{{this.$storage.get('role')}} {{this.$storage.get('adminName')}}</div>
-			<div class="logout" :style="{color:heads.headLogoutFontColor,fontSize:heads.headLogoutFontSize}" @click="onIndexTap">退出到前台</div>
+			<div v-if="this.$storage.get('role')!='管理员'" class="logout" :style="{color:heads.headLogoutFontColor,fontSize:heads.headLogoutFontSize}" @click="onIndexTap">退出到前台</div>
 			<div class="logout" :style="{color:heads.headLogoutFontColor,fontSize:heads.headLogoutFontSize}" @click="onLogout">退出登录</div>
 		</div>
 	</div>
@@ -32,7 +32,7 @@
 				dialogVisible: false,
 				ruleForm: {},
 				user: {},
-				heads: {"headLogoutFontHoverColor":"#fff","headFontSize":"20px","headUserInfoFontColor":"#333","headBoxShadow":"0 1px 6px #444","headTitleImgHeight":"44px","headLogoutFontHoverBgColor":"#333","headFontColor":"#000","headTitleImg":false,"headHeight":"60px","headTitleImgBorderRadius":"22px","headTitleImgUrl":"http://codegen.caihongy.cn/20201021/cc7d45d9c8164b58b18351764eba9be1.jpg","headBgColor":"#E7433E","headTitleImgBoxShadow":"0 1px 6px #444","headLogoutFontColor":"#333","headUserInfoFontSize":"16px","headTitleImgWidth":"44px","headTitleStyle":"2","headLogoutFontSize":"16px"},
+				heads: {"headLogoutFontHoverColor":"#fff","headFontSize":"20px","headUserInfoFontColor":"rgba(255, 255, 255, 1)","headBoxShadow":"0 1px 6px #444","headTitleImgHeight":"44px","headLogoutFontHoverBgColor":"rgba(51, 51, 51, 0.47)","headFontColor":"rgba(255, 255, 255, 1)","headTitleImg":false,"headHeight":"80px","headTitleImgBorderRadius":"22px","headTitleImgUrl":"http://codegen.caihongy.cn/20201021/cc7d45d9c8164b58b18351764eba9be1.jpg","headBgColor":"#fff url(\"http://codegen.caihongy.cn/20211127/37b44dfa0bcc41afb48b21c8b876a47d.png\") no-repeat top","headTitleImgBoxShadow":"0 1px 6px #444","headLogoutFontColor":"rgba(255, 255, 255, 1)","headUserInfoFontSize":"16px","headTitleImgWidth":"44px","headTitleStyle":"2","headLogoutFontSize":"16px"},
 			};
 		},
 		created() {
@@ -48,6 +48,7 @@
 			}) => {
 				if (data && data.code === 0) {
 					this.user = data.data;
+					this.$storage.set('userid',data.data.id);
 				} else {
 					let message = this.$message
 					message.error(data.msg);

@@ -16,7 +16,7 @@ import java.io.Serializable;
  * （主要作用去除一些不必要的字段）
  * @author 
  * @email 
- * @date 2021-04-17 15:15:30
+ * @date 2022-04-04 22:19:37
  */
 public class StoreupVO  implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -45,6 +45,18 @@ public class StoreupVO  implements Serializable {
 	 */
 	
 	private String picture;
+		
+	/**
+	 * 类型(1:收藏,21:赞,22:踩)
+	 */
+	
+	private String type;
+		
+	/**
+	 * 推荐类型
+	 */
+	
+	private String inteltype;
 				
 	
 	/**
@@ -108,6 +120,38 @@ public class StoreupVO  implements Serializable {
 	 */
 	public String getPicture() {
 		return picture;
+	}
+				
+	
+	/**
+	 * 设置：类型(1:收藏,21:赞,22:踩)
+	 */
+	 
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	/**
+	 * 获取：类型(1:收藏,21:赞,22:踩)
+	 */
+	public String getType() {
+		return type;
+	}
+				
+	
+	/**
+	 * 设置：推荐类型
+	 */
+	 
+	public void setInteltype(String inteltype) {
+		this.inteltype = inteltype;
+	}
+	
+	/**
+	 * 获取：推荐类型
+	 */
+	public String getInteltype() {
+		return inteltype;
 	}
 			
 }

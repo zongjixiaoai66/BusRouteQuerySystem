@@ -3,6 +3,7 @@ package com.dao;
 import com.entity.StoreupEntity;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import java.util.List;
+import java.util.Map;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.pagination.Pagination;
 
@@ -16,7 +17,7 @@ import com.entity.view.StoreupView;
  * 
  * @author 
  * @email 
- * @date 2021-04-17 15:15:30
+ * @date 2022-04-04 22:19:37
  */
 public interface StoreupDao extends BaseMapper<StoreupEntity> {
 	
@@ -30,4 +31,5 @@ public interface StoreupDao extends BaseMapper<StoreupEntity> {
 	
 	StoreupView selectView(@Param("ew") Wrapper<StoreupEntity> wrapper);
 	
+
 }
